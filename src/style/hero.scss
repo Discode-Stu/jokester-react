@@ -1,0 +1,54 @@
+@import 'variables';
+
+.layout__hero {
+    display: grid;
+    grid-template-columns: [desc-s] 1fr [desc-e rec-s] 1fr [rec-e];
+    grid-template-rows: [s] 1fr [e];
+
+    grid-row: mic-s/mic-e;
+    grid-column: s/e;
+
+    background-color: $teal;
+
+    @media (max-width: 700px) {
+        grid-row: description-s/mic-e;
+
+        grid-template-rows: [desc-s] 1fr [desc-e mic-s] 1fr [mic-e];
+        grid-template-columns: [s] 1fr [e];
+    }
+
+    .layout__hero__site-description-wrapper {
+        grid-column: desc-s/desc-e;
+        grid-row: s/e;
+
+        display: grid;
+        justify-items: center;
+        justify-content: center;
+
+        @media (max-width: 700px) {
+            grid-column: s/e;
+            grid-row: desc-s/desc-e;
+            justify-content: start;
+            justify-items: start;
+        }
+    }
+
+    .layout__hero__mic { 
+        display: grid;
+
+        justify-items: center;
+        justify-content: center;
+        
+        width: 100%;
+
+        grid-column: rec-s/rec-e;
+        grid-row: s/e;
+
+        @media (max-width: 700px) {
+            grid-row: mic-s/mic-e;
+            grid-column: s/e;
+            justify-content: start;
+            justify-items: start;
+        }
+    }
+}
