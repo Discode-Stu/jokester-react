@@ -8,6 +8,9 @@ import GetJokes from './jokes/getJokes';
 
 
 class Layout extends Component {
+  constructor(props){
+    super(props);
+  }
   render() {
     return (
       <div className='layout'>
