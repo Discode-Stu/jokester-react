@@ -4,7 +4,7 @@
     font-size: 20px;
     font-family: 'Raleway', sans-serif;
     color: $purple;
-    line-height: 2;
+    line-height: 1.4;
 
     width: 60%;
     height: 80%;
@@ -83,12 +83,12 @@
 
         &__jester {
             height: 150px;
+            width: 150px;
 
             justify-self: center;
         }
 
         @media screen and (max-width: 700px) {
-            height: fit-content;
             font-size: 16px;
         }
     }

@@ -1,6 +1,23 @@
 import React, { Component } from 'react';
+
+
 import { ReactMic } from 'react-mic';
 
+
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+
+// var promise = document.querySelector('audio').play();
+// if (promise !== undefined) {
+//   promise.then(_ => {
+//     console.log('Autoplay started!')
+//   }).catch(error => {
+//     console.log('Autoplay was prevented.');
+     
+//     // Show a "Play" button so that user can start playback.
+//   });
+// }
 
 class Microphone extends Component {
     constructor(props) {
@@ -8,9 +25,87 @@ class Microphone extends Component {
         this.state = {
             downloadLinkURL: null,
             record: false,
-            blobURL: null          
+            blobURL: null
+            //context: false    
     }
+
+  // this.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  // this.audioCtx = new AudioContext();
   }
+
+
+  // componentDidMount() {
+  //   var context = new AudioContext();
+  //   return context;
+
+  // }
+
+  
+
+  // context = () => {
+  //   this.setState({ context: true})
+  // }
+  
+  // componentDidMount() {
+  //   // this.context = new window.AudioContext.resume();
+  //   this.context = new (window.AudioContext || window.webkitAudioContext)()
+  // }
+
+  // AudioContext = window.AudioContext || window.webkitAudioContext;
+  // audioCtx = new AudioContext();
+
+  // susresBtn.onclick = function() {
+  //   if(audioCtx.state === 'running') {
+  //     audioCtx.suspend().then(function() {
+  //       susresBtn.textContent = 'Resume context';
+  //     });
+  //   } else if(audioCtx.state === 'suspended') {
+  //     audioCtx.resume().then(function() {
+  //       susresBtn.textContent = 'Suspend context';
+  //     });
+  //   }
+  // }
+
+
+    //   window.onload = function() {
+  //   var context = new AudioContext();
+    
+    
+  //   document.querySelector('button').addEventListener('click', function() {
+  //     context.resume().then(() => {
+  //       console.log('Playback resumed successfully');
+  //     });
+  //   });
+
+  // }
+
+  // componentDidMount() {
+  //   getAudioContext().resume()
+  // }
+
+  // document.querySelector('button').addEventListener('click', function() {
+  //   var context = new AudioContext();
+  // });
+
+  // }
+
+
+  // window.onload = function() {
+  //   var context = new AudioContext();
+  //   ...
+  // }
+
+  // componentDidMount() {
+  //   var audioContext = new AudioContext();
+    
+  //   //  audioContext.suspend();
+  //   return audioContext;
+
+  // }
+
+
+
+  
 
   onData(recordedBlob) {
     console.log('chunk of real-time data is: ', recordedBlob);
@@ -29,9 +124,19 @@ class Microphone extends Component {
   }
 
   startRecording = () => {
-    getAudioContext().resume();
+   // this.setState({ context: true});
     this.setState({ record: true });
   }
+
+
+
+
+
+//   class Audio {
+//     static context = new (window.AudioContext || window.webkitAudioContext)()
+// }
+
+// export default Audio
 
   // touchStarted = () => {
   //   getAudioContext().resume();
@@ -40,8 +145,10 @@ class Microphone extends Component {
   render() {
     const {
       blobURL,
-      downloadLinkURL,
-      record
+      downloadLinkURL
+     // context
+      
+      //record
     } = this.state
     return (
       <div className="react-mic-container">
@@ -53,6 +160,7 @@ class Microphone extends Component {
             onData={this.onData}
             onSave={this.onSave}
             onDownload={this.onDownload}
+            //context={this.context}
             strokeColor="#a64ac9"
             backgroundColor="#ffb48f" 
           />
@@ -60,22 +168,28 @@ class Microphone extends Component {
           <div className="react-mic-container__wrapper__buttons"> 
 
             <button className="react-mic-container__wrapper__buttons__start"   onClick={this.startRecording} type="button" title="Click to Start Recording">
-                <i class="fas fa-microphone-alt"></i>
+              
+                <FontAwesomeIcon className='fas' icon="microphone-alt"/>
+                
             </button>
             
             <button className="react-mic-container__wrapper__buttons__stop" onClick={this.stopRecording} type="button" title="Click to Stop Recording">
-                <i class="fas fa-stop-circle"></i>
+              
+                <FontAwesomeIcon className='fas' icon="stop-circle"/>
             </button>
           
             <a className="react-mic-container__wrapper__buttons__download" href={downloadLinkURL} download="recording.webm">
               <button className="react-mic-container__wrapper__buttons__download__button" title="Click to Download Recording">
-                  <i class="fas fa-cloud-download-alt"></i>
+                  {/* <i class="fas fa-cloud-download-alt"></i> */}
+                  <FontAwesomeIcon className='fas' icon="cloud-download-alt"/>
+
               </button>
             </a>
           </div>
             <audio
               className="react-mic-container__wrapper__audio"
               controls="controls"
+              
               src={blobURL}
               controlsList="nodownload"
               title= "Click the Play Button to Listen To Your Joke!"

@@ -6,12 +6,18 @@ import SiteDescription from './siteDescription/siteDescription';
 import Microphone  from './reactMic/reactMic';
 import GetJokes from './jokes/getJokes';
 
+// let audioContext = () => {
+//   new AudioContext();
+//   return audioContext;
+// }
 
 class Layout extends Component {
   constructor(props){
     super(props);
   }
+
   render() {
+    // audioContext()
     return (
       <div className='layout'>
         {this.props.children}
