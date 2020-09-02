@@ -18,6 +18,8 @@ import {
 
 const createStoreWithMiddleware = applyMiddleware()(createStore);
 
+
+
 import "./style/main.scss";
 
 library.add(faCompactDisc, faMicrophoneAlt, faStopCircle, faCloudDownloadAlt)
@@ -37,3 +39,7 @@ function main() {
 }
 
 document.addEventListener("DOMContentLoaded", main);
+// document.querySelector('button').addEventListener('click', function() {
+//     var context = new AudioContext();
+//   });
+

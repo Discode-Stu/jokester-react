@@ -40,7 +40,14 @@
     }
 }
 
-.navbar {
+.nav-wrapper {
     background-color: $purple;
     border-bottom: 5px groove $purple;
+
+    display: flex;
+
+}
+
+.nav-link-active {
+    
 }

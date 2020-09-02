@@ -1,23 +1,32 @@
 @import 'variables';
 
-.layout__jokes {
+.home__jokes {
     display: grid;
     justify-items: center;
 
     background-color: $teal;
 
-    .layout__jokes__data {
+    .home__jokes__data {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
         justify-items: center;
+
+        //background-color: $peach;
         
+        // box-shadow: ;
+        margin-top: 10px;
         overflow-y: scroll;
         height: 500px;
         width: 1530px;
         padding: 50px;
         grid-gap: 20px;
 
-        @media screen and (max-width: 700px) {
+        border-top: 5px outset $yellow;
+        
+
+
+
+        @media screen and (max-width: 1300px) {
             width: 90vw;
 
             grid-template-columns: repeat(auto-fill, minmax(260px, 265px));
@@ -25,24 +34,34 @@
         }
 
         .cards{
+
+            
             display: grid;
             grid-template-rows: [s] 1fr  [m] 1fr [e];
 
-            &__front {
+            &__front, 
+            &__back {
                 font-size: 16px;
 
                 height: 260px;
                 width: 240px;
                 padding: 5px;
+
+                display: grid;
+                align-items: center;
+
+
+            }
+
+            &__front {
                 border: 7px outset $yellow;
 
                 color: $purple;
                 background-color: $peach;
 
-                display: grid;
                 font-family: 'Raleway', sans-serif;
+
                 text-align: center;
-                align-items: center;
                 justify-items: center;
 
                 &__title {
@@ -62,18 +81,10 @@
             }
             
             &__back {
-                font-size: 16px;
                 color: $purple;
-                background-color: $peach;
-
-                display: grid;
-                align-items: center;
+                background-color: $tan;
 
                 font-family: 'Raleway', sans-serif;
-
-                height: 260px;
-                width: 240px;
-                padding: 5px;
 
                 border: 7px inset $yellow;
                 

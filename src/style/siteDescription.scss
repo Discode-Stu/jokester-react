@@ -6,8 +6,8 @@
     color: $purple;
     line-height: 1.4;
 
-    width: 60%;
-    height: 80%;
+    // width: 60%;
+    // height: 80%;
 
     display: grid;
     grid-template-rows: [s] 1fr [e];
@@ -24,7 +24,9 @@
         transition: all .3s ease;
 
         height: 420px;
-        background-color: $tan;
+        width: 420px;
+        padding-bottom: 4px;
+        
 
         margin-top: 20px;
 
@@ -39,6 +41,8 @@
     }
 
     &__front {
+        background-color: $peach;
+
         display: grid;
         grid-template-rows: 1fr 1fr;
         justify-content: center;
@@ -75,8 +79,11 @@
     }
 
     &__back {
+        background-color: $tan;
+
         transform: rotateY(-180deg);
-        padding: 4px;
+
+        //padding: 4px;
         border: 7px inset $yellow;
 
         display: grid;

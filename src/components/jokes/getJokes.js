@@ -57,7 +57,7 @@ class GetJokes extends Component {
         )
 
         return (
-            <div className='layout__jokes__data'>
+            <div className='home__jokes__data'>
                  {dataList}
             </div>
         )

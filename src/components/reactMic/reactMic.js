@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 
-
 import { ReactMic } from 'react-mic';
 
-
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import Audio from './audio'
 
 
 // var promise = document.querySelector('audio').play();
@@ -25,7 +24,8 @@ class Microphone extends Component {
         this.state = {
             downloadLinkURL: null,
             record: false,
-            blobURL: null
+            blobURL: null,
+            audio: null
             //context: false    
     }
 
@@ -40,6 +40,13 @@ class Microphone extends Component {
 
   // }
 
+  // componentDidMount() {
+  //   this.audioContext = new (window.AudioContext ||
+  //     window.webkitAudioContext)();
+  //     this.analyser = this.audioContext.createAnalyser();
+  //     //this.source = this.audioContext.createMediaStreamSource(this.props.audio);
+
+  // }
   
 
   // context = () => {
@@ -126,6 +133,9 @@ class Microphone extends Component {
   startRecording = () => {
    // this.setState({ context: true});
     this.setState({ record: true });
+    const context = new AudioContext();
+    return context;
+
   }
 
 
@@ -143,9 +153,11 @@ class Microphone extends Component {
   // }
 
   render() {
+    //const context = new AudioContext;
     const {
       blobURL,
-      downloadLinkURL
+      downloadLinkURL,
+      context = new AudioContext()
      // context
       
       //record
@@ -157,13 +169,15 @@ class Microphone extends Component {
             className="react-mic-container__wrapper__sound-wave"
             record={this.state.record}
             onStop={this.onStop}
-            onData={this.onData}
             onSave={this.onSave}
             onDownload={this.onDownload}
             //context={this.context}
             strokeColor="#a64ac9"
             backgroundColor="#ffb48f" 
+
           />
+           
+          
 
           <div className="react-mic-container__wrapper__buttons"> 
 
@@ -189,7 +203,6 @@ class Microphone extends Component {
             <audio
               className="react-mic-container__wrapper__audio"
               controls="controls"
-              
               src={blobURL}
               controlsList="nodownload"
               title= "Click the Play Button to Listen To Your Joke!"

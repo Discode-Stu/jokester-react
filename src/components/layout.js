@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";           
 
 import Header from './headernavbar/header';
 import Navbar from './headernavbar/navbar';
-import SiteDescription from './siteDescription/siteDescription';
-import Microphone  from './reactMic/reactMic';
-import GetJokes from './jokes/getJokes';
+
+import Home from './home';
+
+import SignUp from './pages/signUp';
+import Login from './pages/singIn';
 
 // let audioContext = () => {
 //   new AudioContext();
@@ -17,23 +20,26 @@ class Layout extends Component {
   }
 
   render() {
-    // audioContext()
+    
     return (
-      <div className='layout'>
+      <div className='container'>
+        <Router> 
         {this.props.children}
-        <Header />
-        <Navbar />
-        <div className='layout__hero' >
-          <div className='layout__hero__site-description-wrapper' >
-            <SiteDescription className='layout__hero__site-description-wrapper__card' />
+          <div >
+
+            
+            <Header />
+            <Navbar />
+  
+          
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/sign-up" component={SignUp} />
+              <Route path="/login" component={Login} />
+              
+            </Switch>
           </div>
-          <div className='layout__hero__mic'>
-            <Microphone />
-          </div>
-        </div>
-        <div className='layout__jokes'>
-          <GetJokes className='layout__jokes__data__card' />
-        </div>
+        </Router>
       </div>
     );
   }
