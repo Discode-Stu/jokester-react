@@ -40,7 +40,7 @@
     }
 }
 
-.nav-wrapper {
+.navbar {
     background-color: $purple;
     border-bottom: 5px groove $purple;
 
@@ -49,5 +49,6 @@
 }
 
 .nav-link-active {
+    color: $peach;
     
 }

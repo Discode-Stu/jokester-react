@@ -8,8 +8,9 @@ export default class NavigationComponent extends Component {
   }
 
   render() {
+    const { className } = this.props;
     return (
-      <div className="nav-wrapper">
+      <div className={`${className} navbar`}>
         {/* <div className="left-side">
           <div className="nav-link-wrapper">
             <NavLink exact to="/" activeClassName="nav-link-active">

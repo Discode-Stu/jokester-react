@@ -25,11 +25,11 @@ class Layout extends Component {
       <div className='container'>
         <Router> 
         {this.props.children}
-          <div >
+          <div className='layout'>
 
             
-            <Header />
-            <Navbar />
+            <Header className='layout__header' />
+            <Navbar className='layout__navbar' />
   
           
             <Switch>
