@@ -16,11 +16,13 @@ import {
 
 } from "@fortawesome/free-solid-svg-icons";
 
-const createStoreWithMiddleware = applyMiddleware()(compose((window.devToolsExtension ? window.devToolsExtension() : f => f)(createStore)));
+const createStoreWithMiddleware = applyMiddleware()(compose((window.__REDUX_DEVTOOLS_EXTENSION__? window.__REDUX_DEVTOOLS_EXTENSION__() : f => f)(createStore)));
 
 
 
 import "./style/main.scss";
+
+import history from './history';
 
 library.add(faCompactDisc, faMicrophoneAlt, faStopCircle, faCloudDownloadAlt)
 
@@ -28,7 +30,7 @@ function main() {
 
   ReactDOM.render(
     <Provider store={createStoreWithMiddleware(reducers)}>
-      <BrowserRouter>
+      <BrowserRouter history={history}>
         <Layout>
           
         </Layout>

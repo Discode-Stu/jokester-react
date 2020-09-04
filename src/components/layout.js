@@ -7,7 +7,7 @@ import Navbar from './headernavbar/navbar';
 import Home from './home';
 
 import SignUp from './pages/signUp';
-import Login from './pages/singIn';
+import SignIn from './pages/signIn';
 
 // let audioContext = () => {
 //   new AudioContext();
@@ -26,16 +26,12 @@ class Layout extends Component {
         <Router> 
         {this.props.children}
           <div className='layout'>
-
-            
             <Header className='layout__header' />
             <Navbar className='layout__navbar' />
-  
-          
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/sign-up" component={SignUp} />
-              <Route path="/login" component={Login} />
+              <Route path="/sign-in" component={SignIn} />
               
             </Switch>
           </div>

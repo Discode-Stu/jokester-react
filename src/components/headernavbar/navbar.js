@@ -29,7 +29,7 @@ export default class NavigationComponent extends Component {
             </NavLink>
           </div>
           <div className="nav-link-wrapper">
-            <NavLink to="/login" activeClassName="nav-link-active">
+            <NavLink to="/sign-in" activeClassName="nav-link-active">
               Sign In
             </NavLink>
           </div>

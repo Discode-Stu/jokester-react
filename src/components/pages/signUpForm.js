@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { reduxForm, field } from 'redux-form';
+import { reduxForm, Field } from 'redux-form';
 
 
 export default class SignUpForm extends Component {
