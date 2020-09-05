@@ -1,0 +1,56 @@
+@import 'variables';
+
+.form-input {
+    display: grid;
+    grid-gap: 6.5px;
+    font-family: 'Raleway', sans-serif;
+
+    & > * {
+        padding-left: 15px;
+    }
+
+
+    ::placeholder {
+        color: $purple;
+    }
+    
+    &__label {
+        color: $purple;
+        font-size: 18px;
+
+
+    }
+    &__input {
+        color: $purple;
+        
+        box-sizing: border-box;
+        height: 39px;
+        width: 426px;
+        border: 3px inset $yellow;
+        border-radius: 20px;
+        
+        background-color: $tan;
+        font-size: 18px;
+
+    }
+}
+
+.form-button {
+
+    &__button {
+        font-family: 'Raleway', sans-serif;
+
+        color: $purple;
+        font-size: 16px;
+        height: 38px;
+        width: 243px;
+        border-radius: 20px;
+        background-color: $tan;
+        border: 3px inset $yellow;
+
+        &:focus {
+            outline: none;
+        }
+        
+    }
+}
