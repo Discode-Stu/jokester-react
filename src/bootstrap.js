@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose } from "redux";
-import { BrowserRouter } from "react-router-dom";
+import { Router } from "react-router-dom";
 import Layout from "./components/layout";
 import reducers from "./reducers";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -30,11 +30,11 @@ function main() {
 
   ReactDOM.render(
     <Provider store={createStoreWithMiddleware(reducers)}>
-      <BrowserRouter history={history}>
+      <Router history={history}>
         <Layout>
           
         </Layout>
-      </BrowserRouter>
+      </Router>
     </Provider>,
     document.querySelector(".app-wrapper")
   );
