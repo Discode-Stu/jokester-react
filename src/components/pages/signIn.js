@@ -13,6 +13,7 @@ export default class SignIn extends Component {
             <div className='sign-in'>
                 <PageTitle className='sign-in__page-title' title='Login' />
                 <SignInForm onSubmit={this.onSubmit} className='sign-in__form' />
+                <img className='sign-in__jester' src={ require('./../../../src/images/jesterGirl.png') } />
             </div>
         );
     }

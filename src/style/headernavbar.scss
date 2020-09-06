@@ -45,10 +45,26 @@
     border-bottom: 5px groove $purple;
 
     display: flex;
+    justify-content: flex-end;
+    align-items:center;
+    grid-gap: 35px;
 
-}
+    font-size: 26px;
+    color: $tan;
 
-.nav-link-active {
-    color: $peach;
+    padding-right: 20px;
     
+
+    .nav-link-wrapper {
+        color: $tan;
+        .nav-link-wrapper__link {
+            color: $teal;
+        }
+
+        .nav-link-active {
+            color: $peach;
+        
+        }
+    }
 }
+

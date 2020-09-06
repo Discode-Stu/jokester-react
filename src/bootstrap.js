@@ -11,7 +11,10 @@ import {
   faCompactDisc, 
   faMicrophoneAlt,
   faStopCircle,
-  faCloudDownloadAlt
+  faCloudDownloadAlt,
+  faHome,
+  faSignInAlt,
+  faUserPlus
 
 
 } from "@fortawesome/free-solid-svg-icons";
@@ -24,7 +27,7 @@ import "./style/main.scss";
 
 import history from './history';
 
-library.add(faCompactDisc, faMicrophoneAlt, faStopCircle, faCloudDownloadAlt)
+library.add(faCompactDisc, faMicrophoneAlt, faStopCircle, faCloudDownloadAlt, faHome, faSignInAlt, faUserPlus)
 
 function main() {
 

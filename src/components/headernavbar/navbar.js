@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+
 
 export default class NavigationComponent extends Component {
   constructor() {
@@ -19,18 +22,18 @@ export default class NavigationComponent extends Component {
           </div> */}
 
           <div className="nav-link-wrapper">
-            <NavLink exact to="/" activeClassName="nav-link-active">
-              Home
+            <NavLink  className='nav-link-wrapper__link' exact to="/" activeClassName="nav-link-active">
+              <FontAwesomeIcon className='fas' title='Home' icon="home"/>
             </NavLink>
           </div>
           <div className="nav-link-wrapper">
-            <NavLink to="/sign-up" activeClassName="nav-link-active">
-              Sign Up
+            <NavLink className='nav-link-wrapper__link' to="/sign-up" activeClassName="nav-link-active">
+              <FontAwesomeIcon className='fas' title='Sign Up' icon="user-plus"/>
             </NavLink>
           </div>
           <div className="nav-link-wrapper">
-            <NavLink to="/sign-in" activeClassName="nav-link-active">
-              Sign In
+            <NavLink className='nav-link-wrapper__link' to="/sign-in" activeClassName="nav-link-active">
+              <FontAwesomeIcon className='fas' title='Login' icon="sign-in-alt"/>
             </NavLink>
           </div>
         </div>

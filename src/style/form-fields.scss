@@ -9,14 +9,21 @@
         padding-left: 15px;
     }
 
-
     ::placeholder {
         color: $purple;
     }
     
+    &__label,
+    &__input {
+        &:focus {
+            outline: none;
+            background-color: $tan;
+
+        }
+    }
     &__label {
         color: $purple;
-        font-size: 18px;
+        font-size: 20px;
 
 
     }
@@ -24,32 +31,41 @@
         color: $purple;
         
         box-sizing: border-box;
-        height: 39px;
+        height: 55px;
         width: 426px;
         border: 3px inset $yellow;
-        border-radius: 20px;
+        border-radius: 50px;
         
-        background-color: $tan;
-        font-size: 18px;
+        background-color: $peach;
+        font-size: 20px;
 
     }
 }
 
 .form-button {
 
+    background-color: $teal;
+
     &__button {
         font-family: 'Raleway', sans-serif;
 
         color: $purple;
-        font-size: 16px;
-        height: 38px;
+        font-size: 18px;
+        height: 55px;
         width: 243px;
-        border-radius: 20px;
-        background-color: $tan;
-        border: 3px inset $yellow;
+        border-radius: 50px;
+        background-color: $peach;
+        border: 3px outset $yellow;
 
         &:focus {
             outline: none;
+            // background-color: $tan;
+            border: 3px inset $yellow;
+
+        }
+
+        &:hover {
+            background-color: $tan;
         }
         
     }
