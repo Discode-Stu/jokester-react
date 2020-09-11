@@ -1,7 +1,7 @@
 @import 'variables';
 
 .react-mic-container { 
-    background-color: $teal;
+    //background-color: $tan;
 
     // width: 1000px;
 
@@ -28,7 +28,7 @@
         grid-row: s/e;
         grid-column: m/e;
 
-        background-color: $teal;
+        background-color: $purple;
 
         @media screen and (max-width: 700px) {
             width: 90vw;
@@ -36,10 +36,10 @@
             height: 266px;
         }
 
-        border-top: 7px ridge $yellow;
-        border-left: 7px ridge $yellow;
-        border-right: 7px ridge $yellow;
-        border-bottom: 7px ridge $yellow;
+        border-top: 7px ridge $teal;
+        border-left: 7px ridge $teal;
+        border-right: 7px ridge $teal;
+        border-bottom: 7px ridge $teal;
 
         &__sound-wave,
         &__buttons,
@@ -56,13 +56,13 @@
         &__sound-wave {
             grid-row: wave-s/wave-e;
 
-            border-bottom: 7px ridge $yellow;
+            border-bottom: 7px ridge $teal;
         }
 
         &__buttons {
-            background-color: $teal;
+            background-color: $yellow;
             height: 100%;
-            border-bottom: 7px solid $yellow;
+            border-bottom: 7px solid $teal;
 
             grid-row: buttons-s/buttons-e;
             
@@ -87,7 +87,7 @@
             &__download {
                 grid-row: s/e;
 
-                color: $purple;
+                color: $teal;
                 border-radius: 60px;
             }
 
@@ -109,16 +109,16 @@
             &__start,
             &__stop,
             &__download__button {
-                border: 3px outset $yellow;
-                background-color: $peach;
+                border: 3px outset $teal;
+                background-color: $purple;
                 
                 &:hover {
                     background-color: $tan;
                 }
 
                 &:active {
-                    border: 3px inset $yellow;
-                    background-color: $teal;
+                    border: 3px inset $peach;
+                    background-color: $peach;
                 }
 
                 &:focus {
@@ -133,7 +133,7 @@
                 margin-left: 20px;
 
                 &:focus {
-                    background-color: $yellow;
+                    background-color: $peach;
                 } 
             }
 
@@ -143,8 +143,6 @@
             }
 
             &__download {
-                color: $purple;
-
                 grid-column: m3/e;
 
                 display: grid;
@@ -152,7 +150,7 @@
 
                 &__button {
                     border-radius: 60px;
-                    color: $purple;
+                    color: $teal;
                     height: 60px;
                     width: 60px;
 

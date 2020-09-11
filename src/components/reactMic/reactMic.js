@@ -1,10 +1,63 @@
 import React, { Component } from 'react';
 
-import { ReactMic } from 'react-mic';
+  document.addEventListener("click", () =>  {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+
+    ctx.resume().then(() => console.log(ctx.state))
+
+
+  })
+
+
+import { ReactMic, Audio } from 'react-mic';
+     
+
+
+
+
+// import { ReactMic, Audio } from 'react-mic';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import Audio from './audio'
+// import Audio from './audio'
+
+
+// document.addEventListener("click", () =>  {
+//   const ctx = new (window.AudioContext || window.webkitAudioContext)();
+
+//   ctx.resume().then(() => console.log(ctx.state))
+   
+//  })
+
+// const ctx = new (window.AudioContext || window.webkitAudioContext)();
+
+// const osc = ctx.createOscillator();
+
+// osc.connect(ctx.destination);
+
+// console.log(ctx);
+
+// osc.start(0);
+// osc.stop(2);
+
+
+// const btn = document.querySelector("button");
+
+// if(btn) {
+
+// window.onload=function(){
+   
+  
+//   document.addEventListener("click", () =>  {
+//     const ctx = new (window.AudioContext || window.webkitAudioContext)();
+
+//     ctx.resume().then(() => console.log(ctx.state))
+    
+//   })
+// }
+// }
+
+
 
 
 // var promise = document.querySelector('audio').play();
@@ -24,21 +77,57 @@ class Microphone extends Component {
         this.state = {
             downloadLinkURL: null,
             record: false,
-            blobURL: null,
-            audio: null
+            blobURL: null
+            
+           // audio: null
             //context: false    
     }
+    document.addEventListener("click", () =>  {
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+  
+      ctx.resume().then(() => console.log(ctx.state))
+  
+  
+    })
 
   // this.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
   // this.audioCtx = new AudioContext();
   }
 
+  // componentDidMount() {
+  //   document.addEventListener("click", () =>  {
+  //     const ctx = new (window.AudioContext || window.webkitAudioContext)();
+  
+  //     ctx.resume().then(() => console.log(ctx.state))
+       
+  //    })
+  
+  // }
+  
+//   window.addEventListener('click', audioCtx => {
+//     const audioCtx = new window.AudioContext();
+//     audioCtx.resume();
+//   });
+// }
+//   componentDidMount() {
+//     const btn = document.querySelector("button");
+// btn.addEventListener("click", () => {
+//   const ctx = new (window.AudioContext || window.webkitAudioContext)();
+//   ctx.resume()
+
+// })
+//   }
 
   // componentDidMount() {
-  //   var context = new AudioContext();
-  //   return context;
+  //   var audioCtx = new window.AudioContext();
+    
+  // //   audioCtx.addEventListener("click", function () {
+  // //     //audioCtx.play();
+  //       audioCtx.resume();
+  // // });
 
   // }
+
 
   // componentDidMount() {
   //   this.audioContext = new (window.AudioContext ||
@@ -130,11 +219,13 @@ class Microphone extends Component {
     this.setState({ record: false });
   }
 
+  
+  
   startRecording = () => {
    // this.setState({ context: true});
     this.setState({ record: true });
-    const context = new AudioContext();
-    return context;
+   // const context = new AudioContext();
+    //return context;
 
   }
 
@@ -154,10 +245,18 @@ class Microphone extends Component {
 
   render() {
     //const context = new AudioContext;
+
+    // const btn = document.querySelector("button");
+    // btn.addEventListener("click", () => {
+    //   const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    //   ctx.resume()
+    // }
+
+
     const {
       blobURL,
       downloadLinkURL,
-      context = new AudioContext()
+     // context = new AudioContext()
      // context
       
       //record
@@ -165,6 +264,7 @@ class Microphone extends Component {
     return (
       <div className="react-mic-container">
         <div className="react-mic-container__wrapper" >
+          {/* <Audio /> */}
           <ReactMic
             className="react-mic-container__wrapper__sound-wave"
             record={this.state.record}
@@ -173,7 +273,7 @@ class Microphone extends Component {
             onDownload={this.onDownload}
             //context={this.context}
             strokeColor="#a64ac9"
-            backgroundColor="#ffb48f" 
+            backgroundColor="#fccd04" 
 
           />
            
@@ -215,3 +315,4 @@ class Microphone extends Component {
 }
 
 export default Microphone;
+

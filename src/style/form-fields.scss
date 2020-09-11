@@ -33,10 +33,10 @@
         box-sizing: border-box;
         height: 55px;
         width: 426px;
-        border: 3px inset $yellow;
+        border: 3px inset $teal;
         border-radius: 50px;
         
-        background-color: $peach;
+        background-color: $yellow;
         font-size: 20px;
 
     }
@@ -44,7 +44,7 @@
 
 .form-button {
 
-    background-color: $teal;
+    background-color: $purple;
 
     &__button {
         font-family: 'Raleway', sans-serif;
@@ -54,8 +54,8 @@
         height: 55px;
         width: 243px;
         border-radius: 50px;
-        background-color: $peach;
-        border: 3px outset $yellow;
+        background-color: $yellow;
+        border: 3px outset $teal;
 
         &:focus {
             outline: none;
@@ -69,7 +69,7 @@
         }
     }
     &__back-button {
-        background-color: $yellow;
+        background-color: $peach;
         // color: ;
         width: 137px;
     }

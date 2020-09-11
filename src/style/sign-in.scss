@@ -1,5 +1,5 @@
 .sign-in {
-    background-color: $teal;
+    background-color: $purple;
     height: 100vh;
    
 
@@ -52,7 +52,7 @@
 
     &__line {
         grid-row: line-s/line-e;
-        border-top: 5px outset $yellow;
+        border-top: 5px outset $teal;
         grid-column: s/e;
         margin-right: 100px;
         width: 89vw;

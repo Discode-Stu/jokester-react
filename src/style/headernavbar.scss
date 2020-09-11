@@ -6,8 +6,7 @@
     align-items: flex-end;
 
     width: 100%;
-    background-color: $peach;
-    border-bottom: 5px groove $peach;
+    background-color: $yellow;
     
     @media screen and (max-width: 700px) {
         justify-content: flex-start;
@@ -41,8 +40,9 @@
 }
 
 .navbar {
-    background-color: $purple;
-    border-bottom: 5px groove $purple;
+    background-color: $teal;
+    border-bottom: 5px groove $teal;
+    border-top: 5px groove $teal;
 
     display: flex;
     justify-content: flex-end;
@@ -56,13 +56,13 @@
     
 
     .nav-link-wrapper {
-        color: $tan;
+      //  color: $tan;
         .nav-link-wrapper__link {
-            color: $teal;
+            color: $purple;
         }
 
         .nav-link-active {
-            color: $peach;
+            color: $yellow;
         
         }
     }

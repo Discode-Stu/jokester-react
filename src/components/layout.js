@@ -16,10 +16,25 @@ import history from '../history';
 //   return audioContext;
 // }
 
+
+
+// window.onload=function(){
+   
+  
+//   document.addEventListener("click", () =>  {
+//     const ctx = new (window.AudioContext || window.webkitAudioContext)();
+
+//     ctx.resume().then(() => console.log(ctx.state))
+    
+//   })
+// }
+
 class Layout extends Component {
   constructor(props){
     super(props);
   }
+
+
 
   render() {
     

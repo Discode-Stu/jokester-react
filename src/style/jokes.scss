@@ -4,7 +4,7 @@
     display: grid;
     justify-items: center;
 
-    background-color: $teal;
+    background-color: $purple;
 
     .home__jokes__data {
         display: grid;
@@ -21,7 +21,7 @@
         padding: 50px;
         grid-gap: 20px;
 
-        border-top: 5px outset $yellow;
+        border-top: 5px outset $teal;
         
 
 
@@ -54,10 +54,10 @@
             }
 
             &__front {
-                border: 7px outset $yellow;
+                border: 7px outset $teal;
 
                 color: $purple;
-                background-color: $peach;
+                background-color: $yellow;
 
                 font-family: 'Raleway', sans-serif;
 
@@ -82,11 +82,11 @@
             
             &__back {
                 color: $purple;
-                background-color: $tan;
+                background-color: $peach;
 
                 font-family: 'Raleway', sans-serif;
 
-                border: 7px inset $yellow;
+                border: 7px inset $teal;
                 
                 &__content__jester {
                     height: 125px;
