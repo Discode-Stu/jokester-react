@@ -5,7 +5,7 @@ import PageTitle from '../pageTitle/pageTitle';
 export default class SignUp extends Component {
 
     onSubmit = (fields) => {
-        console.log(fields)
+        console.log(fields) 
     }
 
     render() {

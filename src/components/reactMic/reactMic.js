@@ -82,17 +82,25 @@ class Microphone extends Component {
            // audio: null
             //context: false    
     }
-    document.addEventListener("click", () =>  {
-      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    // document.querySelector({ReactMic}).addEventListener("click", () =>  {
+      // const ctx = new (window.AudioContext || window.webkitAudioContext)();
   
-      ctx.resume().then(() => console.log(ctx.state))
+      // ctx.resume().then(() => console.log(ctx.state))
   
   
-    })
+    // })
 
   // this.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
   // this.audioCtx = new AudioContext();
   }
+
+  // handleAudioCtx = () => {
+  //   const ctx = (window.AudioContext || window.webkitAudioContext)();
+
+  //   this.ctx.resume().then(() => console.log(ctx.state))
+
+
+  //  }
 
   // componentDidMount() {
   //   document.addEventListener("click", () =>  {
@@ -266,6 +274,7 @@ class Microphone extends Component {
         <div className="react-mic-container__wrapper" >
           {/* <Audio /> */}
           <ReactMic
+           // onClick={this.handleAudioCtx}
             className="react-mic-container__wrapper__sound-wave"
             record={this.state.record}
             onStop={this.onStop}
