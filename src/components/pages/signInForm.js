@@ -15,7 +15,7 @@ export class SignInForm extends Component {
                 <Field className='sign-in-form__login' onClick={console.log('tryna submit')} type='submit' title='Login' name='login' component={FormButton} />
             </form>
         );
-    }
+    } 
 }
 
 SignInForm = reduxForm({

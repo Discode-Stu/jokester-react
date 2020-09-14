@@ -94,6 +94,16 @@ class Microphone extends Component {
   // this.audioCtx = new AudioContext();
   }
 
+  // componentWillMount() {
+  //   // Initialize an audio context
+  //   this.audioContext = new AudioContext();
+  // }
+  
+  // componentWillUnmount() {
+  //   // Close context on unmount
+  //   this.audioContext.close();
+  // }
+
   // handleAudioCtx = () => {
   //   const ctx = (window.AudioContext || window.webkitAudioContext)();
 

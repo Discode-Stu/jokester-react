@@ -5,6 +5,8 @@ import { reduxForm, Field } from 'redux-form';
 
 import { FormInput, FormButton } from './formFields';
 
+import history from '../../history';
+
 export class SignUpForm extends Component {
     constructor(props) {
         super(props);
@@ -16,45 +18,70 @@ export class SignUpForm extends Component {
             confirm: ''
         };
       }
+
+    validatePassword = () => {
+        const {password} = this.state;
+
+        var passwordValidator = require('password-validator');
+        var schema = new passwordValidator();
+
+        schema.is().min(8).is().max(20).has().uppercase().has().lowercase().has().digits(2);
+        console.log(schema.validate(password));
+
+        return (schema.validate(password));
+    }
+
+    postUserData = () => {
+        axios.post("https://dts-jokester-api.herokuapp.com/user", this.state)
+        .then(res => {
+            console.log(res);
+            console.log(res.data)
+        }).catch(error => {
+            console.log(error);
+        })
+    }
+
+    resetForm = () => {
+        this.setState({
+            name: '',
+            email: '',
+            password: '',
+            confirm: ''
+        })
+    }
     
+    historyPush = () => {
+        history.push('/')
+    }
+
     handleChange = event => {
         this.setState({ [event.target.name]: event.target.value });
-        // this.setState({ [e.target.email]: event.target.value });
-        // this.setState({ [e.target.password]: event.target.value });
     }
 
     handleSubmit = event => {
         event.preventDefault();
         console.log(this.state)
+ 
+        const { password, confirm } = this.state;
 
-        const { name, email, password, confirm } = this.state;
-
-        const user = {
-            name: name,
-            email: email,
-            password: password,
-            confirm: confirm
-
-        };
-        
         if (password !== confirm) {
             alert("Passwords don't match");
-        } else {
-    
-        axios.post("https://dts-jokester-api.herokuapp.com/user", this.state)
-            .then(res => {
-                console.log(res);
-                console.log(res.data)
-            })
+        } else { this.validatePassword() 
+            ? (this.postUserData(), this.historyPush())
+ 
+            : alert("Password must be 8-20 characters long, must contain two digits and must contain a capital and lowercase letter.")
         }
-    }
+    };
 
 
+
+
+    
     render() {
         const { className, handleSubmit } = this.props;
         const { name, email, password, confirm } = this.state;
         return (
-            <form onSubmit={this.handleSubmit} className={`${className} sign-up-form`}>
+            <form onSubmit={this.handleSubmit} onReset={this.resetForm} id="sign-up-form" className={`${className} sign-up-form`}>
                 <Field className='sign-up-form__name' type='name' title='Name' placeholder='Name' name='name' value={name} onChange={this.handleChange} component={FormInput} />
                 <Field className='sign-up-form__email' type='email' title='Email' placeholder='Email' name='email' value={email} onChange={this.handleChange}  component={FormInput} />
                 <Field className='sign-up-form__password' type='password' title='Password' placeholder='Password' name='password' value={password} onChange={this.handleChange}  component={FormInput} />
