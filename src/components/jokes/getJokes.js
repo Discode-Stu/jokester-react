@@ -14,7 +14,7 @@ class GetJokes extends Component {
 
       componentDidMount() {
         axios
-        .get("https://dts-jokester-api.herokuapp.com/jokes")
+        .get("https://cors-anywhere.herokuapp.com/https://dts-jokester-api.herokuapp.com/jokes")
         .then(response => {
           this.setState({
               data: response.data

@@ -32,24 +32,32 @@ export class SignUpForm extends Component {
     }
 
     postUserData = () => {
-        axios.post("https://dts-jokester-api.herokuapp.com/user", this.state)
+        const config = {
+            headers: {
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+            }
+          };
+
+        axios
+        .post("http://localhost:5000/register",
+        {
+              name: this.state.name,
+              email: this.state.email,
+              passwordToHash: this.state.password
+        },
+        config,
+        { withCredentials: true }
+        )
         .then(res => {
             console.log(res);
             console.log(res.data)
         }).catch(error => {
-            console.log(error);
-        })
+            console.log(error.response);
+        });
+        event.preventDefault();
     }
 
-    resetForm = () => {
-        this.setState({
-            name: '',
-            email: '',
-            password: '',
-            confirm: ''
-        })
-    }
-    
     historyPush = () => {
         history.push('/')
     }
@@ -61,6 +69,7 @@ export class SignUpForm extends Component {
     handleSubmit = event => {
         event.preventDefault();
         console.log(this.state)
+        console.log(event)
  
         const { password, confirm } = this.state;
 
@@ -68,15 +77,10 @@ export class SignUpForm extends Component {
             alert("Passwords don't match");
         } else { this.validatePassword() 
             ? (this.postUserData(), this.historyPush())
- 
             : alert("Password must be 8-20 characters long, must contain two digits and must contain a capital and lowercase letter.")
         }
     };
 
-
-
-
-    
     render() {
         const { className, handleSubmit } = this.props;
         const { name, email, password, confirm } = this.state;
