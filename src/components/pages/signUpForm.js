@@ -40,6 +40,7 @@ export class SignUpForm extends Component {
           };
 
         axios
+        // .post"https://dts-jokester-api.herokuapp.com/login",
         .post("http://localhost:5000/register",
         {
               name: this.state.name,

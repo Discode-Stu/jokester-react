@@ -32,6 +32,26 @@ import history from '../history';
 class Layout extends Component {
   constructor(props){
     super(props);
+
+    this.state = {
+      loggedInStatus: "NOT_LOGGED_IN"
+    }
+
+    this.handleSuccessfulLogin = this.handleSuccessfulLogin.bind(this)
+    this.handleUnSuccessfulLogin = this.handleUnsuccessfulLogin.bind(this)
+  }
+
+  handleSuccessfulLogin() {
+    this.setState({
+      loggedInStatus: "LOGGED_IN"
+
+    })
+  }
+  handleUnsuccessfulLogin() {
+    this.setState({
+      loggedInStatus: "NOT_LOGGED_IN"
+
+    })
   }
 
 
@@ -45,8 +65,20 @@ class Layout extends Component {
           <div className='layout'>
             <Header className='layout__header' />
             <Navbar className='layout__navbar' />
+            <h2>{this.state.loggedInStatus}</h2>
             <Switch>
               <Route exact path="/" component={Home} />
+              <Route 
+                exact path="/shop"
+                render={props => (
+                  <Shop
+                  {...props}
+                  handleSuccessfulLogin={this.handleSuccessfulLogin}
+                  handleUnSuccessfulLogin={this.handleUnsuccessfulLogin}
+                  />
+                )}
+              
+              />
               <Route path="/sign-in" component={SignIn} />
               <Route path="/sign-up" component={SignUp} />
   
