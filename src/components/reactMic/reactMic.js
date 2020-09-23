@@ -7,16 +7,8 @@ import React, { Component } from 'react';
 
 
   })
-
-
 import { ReactMic, Audio } from 'react-mic';
-     
-
-
-
-
 // import { ReactMic, Audio } from 'react-mic';
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // import Audio from './audio'
@@ -313,7 +305,6 @@ class Microphone extends Component {
           
             <a className="react-mic-container__wrapper__buttons__download" href={downloadLinkURL} download="recording.webm">
               <button className="react-mic-container__wrapper__buttons__download__button" title="Click to Download Recording">
-                  {/* <i class="fas fa-cloud-download-alt"></i> */}
                   <FontAwesomeIcon className='fas' icon="cloud-download-alt"/>
 
               </button>

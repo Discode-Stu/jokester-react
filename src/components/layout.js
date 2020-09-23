@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Router, Switch, Route } from "react-router-dom";           
+import { Router, Switch, Route } from "react-router-dom";      
+import axios from 'axios';     
 
 import Header from './headernavbar/header';
 import Navbar from './headernavbar/navbar';
@@ -10,6 +11,8 @@ import SignUp from './pages/signUp';
 import SignIn from './pages/signIn';
 
 import history from '../history';
+import LogoutButton from './pages/logout';
+import Profile from './pages/profile';
 
 // let audioContext = () => {
 //   new AudioContext();
@@ -38,7 +41,7 @@ class Layout extends Component {
     }
 
     this.handleSuccessfulLogin = this.handleSuccessfulLogin.bind(this)
-    this.handleUnSuccessfulLogin = this.handleUnsuccessfulLogin.bind(this)
+    this.handleUnsuccessfulLogin = this.handleUnsuccessfulLogin.bind(this)
   }
 
   handleSuccessfulLogin() {
@@ -54,7 +57,28 @@ class Layout extends Component {
     })
   }
 
+  // checkLoginStatus() {
+  //   const config = {
+  //     headers: {
+  //       "Access-Control-Allow-Origin": "*",
+  //       "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+  //     }
+  //   }
 
+  //   return axios.get("http://localhost:5000/login",
+  //   config,
+  //   { withCredentials: true })
+  //   .then(response => {
+  //     const loggedIn = response.data
+  //     const loggedInStatus = this.state.loggedInStatus;
+  //     console.log('login response', response);
+  //   });
+  // }
+
+  // componentDidMount() {
+  //   console.log('component did mount');
+  //   this.checkLoginStatus();
+  // }
 
   render() {
     
@@ -68,18 +92,22 @@ class Layout extends Component {
             <h2>{this.state.loggedInStatus}</h2>
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route 
-                exact path="/shop"
+              <Route path="/sign-in" component={SignIn} />
+              <Route path="/v2/logout" component={LogoutButton} />
+              <Route path="/profile" component={Profile} />
+
+              {/* <Route 
+                path="/sign-in" 
                 render={props => (
-                  <Shop
+                  <SignIn
                   {...props}
                   handleSuccessfulLogin={this.handleSuccessfulLogin}
-                  handleUnSuccessfulLogin={this.handleUnsuccessfulLogin}
+                  handleUnsuccessfulLogin={this.handleUnsuccessfulLogin}
                   />
                 )}
               
-              />
-              <Route path="/sign-in" component={SignIn} />
+              /> */}
+              {/* <Route path="/sign-in" component={SignIn} /> */}
               <Route path="/sign-up" component={SignUp} />
   
               

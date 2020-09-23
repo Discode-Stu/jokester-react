@@ -60,10 +60,11 @@ export class SignInForm extends Component {
                 // this.setState({
                 //     errorText: res.data
                 // })
-                this.props.handleSuccessfulAuth
+                this.props.handleSuccessfulAuth();
                 //  this.historyPush();
             }
         }).catch(error => {
+            this.props.handleUnsuccessfulAuth();
             console.log(error.response);
             if (error.response){
             this.setState({

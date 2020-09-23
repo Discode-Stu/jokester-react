@@ -13,7 +13,7 @@ export default class Auth extends Component {
 
     handleSuccessfulAuth() {
         this.props.handleSuccessfulLogin();
-        this.props.history.push('/');
+        // this.props.history.push('/');
     }
 
     handleUnsuccessfulAuth() {
@@ -26,8 +26,9 @@ export default class Auth extends Component {
     render() {
         return(
             <div>
-            <SignIn handleSuccessfulAuth={this.handleSuccessfulAuth} />
-            <SignIn handleUnsuccessfulAuth={this.handleUnsuccessfulAuth} />
+            <SignIn 
+                handleSuccessfulAuth={this.handleSuccessfulAuth} 
+                handleUnsuccessfulAuth={this.handleUnsuccessfulAuth} />
             </div>
         )
     }
