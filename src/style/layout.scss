@@ -2,7 +2,7 @@
 
 .layout {
     display: grid;
-    grid-template-rows: [header-s] 180px [header-e nav-s] 50px [nav-e content-s] 1fr [content-e]; //cards-s] 1fr [cards-e];
+    grid-template-rows: [header-s] 180px [header-e nav-s] 50px [nav-e status-s] 50px [status-e content-s] 1fr [content-e]; //cards-s] 1fr [cards-e];
     grid-template-columns: [s] 1fr [e];
 
     @media (max-width: 700px) {

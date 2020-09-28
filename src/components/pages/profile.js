@@ -8,12 +8,19 @@ const Profile = () => {
     return <div>Loading ...</div>;
   }
 
+//   var lock = new Auth0Lock(
+//       'ty82aHR426NOk6mOehBiryz2bRy72jW5',
+//       'dev-f2-244jj.us.auth0.com'
+//     );
+
+
   return (
     isAuthenticated ? (
       <div>
         <img src={user.picture} alt={user.name} />
         <h2>{user.name}</h2>
         <p>{user.email}</p>
+    {/* <div>{console.log(isAuthenticated)}</div> */}
       </div>
     ) : <div>Please sign up or log in for view profile!</div>
     

@@ -17,7 +17,7 @@
     display: grid;
 
     justify-items: center;
-    grid-template-columns: [desc-s] 1fr [desc-e rec-s] 1fr [rec-e];
+    grid-template-columns: [desc-s] 1fr [desc-e]; //rec-s] 1fr [rec-e];
     grid-template-rows: [s] 1fr [e];
 
    // grid-row: mic-s/mic-e;
@@ -28,7 +28,8 @@
     @media (max-width: 1300px) {
         //grid-row: description-s/mic-e;
 
-        grid-template-rows: [desc-s] 1fr [desc-e mic-s] 1fr [mic-e];
+        // grid-template-rows: [desc-s] 1fr [desc-e mic-s] 1fr [mic-e];
+        grid-template-rows: [desc-s] 1fr [desc-e];
         grid-template-columns: [s] 1fr [e];
     }
 

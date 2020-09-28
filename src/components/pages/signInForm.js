@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from "axios";
 
+import fire from '../config/fire';
+
 import { reduxForm, Field } from 'redux-form';
 
 import { FormInput, FormButton } from './formFields';
@@ -17,6 +19,8 @@ export class SignInForm extends Component {
           password: "",
           errorText: ""
         };
+        // this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleChange = event => {
@@ -29,6 +33,19 @@ export class SignInForm extends Component {
     
     historyPush = () => {
         history.push('/')
+    }
+
+    login() {
+        const email = document.querySelector('#email').value;
+        const password = document.querySelector('#password').value;
+
+        fire.auth().signInWithEmailAndPassword(email, password)
+        .then((u) => {
+            console.log("Successfully Logged In")
+        })
+        .catch((err) => {
+            console.log("Error: " + err.toString());
+        })
     }
 
     
@@ -54,6 +71,7 @@ export class SignInForm extends Component {
           { withCredentials: true }
         )
         .then(res => {
+            localStorage.setItem('cool-jwt', res.data.token)
             console.log(res);
             console.log(res.data);
             if (res.status === 200) {
@@ -88,8 +106,8 @@ export class SignInForm extends Component {
             <div>
                 <div>{this.state.errorText}</div>
                 <form onSubmit={this.handleSubmit} className={`${className} sign-in-form`}>
-                    <Field className='sign-in-form__email' type='email' title='Email' placeholder='Email' name='email' onChange={this.handleChange} component={FormInput} />
-                    <Field className='sign-in-form__password' type='password' title='Password' placeholder='Password' name='password' onChange={this.handleChange} component={FormInput} />
+                    <Field className='sign-in-form__email' id='email' type='email' title='Email' placeholder='Email' name='email' onChange={this.handleChange} component={FormInput} />
+                    <Field className='sign-in-form__password' id='password' type='password' title='Password' placeholder='Password' name='password' onChange={this.handleChange} component={FormInput} />
                     <div className='sign-in-form__line'></div>
                     <Field className='sign-in-form__login' onClick={console.log('tryna submit')} type='submit' title='Login' name='login' component={FormButton} />
                 </form>
