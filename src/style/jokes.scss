@@ -34,8 +34,6 @@
         }
 
         .cards{
-
-            
             display: grid;
             grid-template-rows: [s] 1fr  [m] 1fr [e];
 
@@ -87,6 +85,10 @@
                 font-family: 'Raleway', sans-serif;
 
                 border: 7px inset $teal;
+
+                &__button {
+                    height: 35px;
+                }
                 
                 &__content__jester {
                     height: 125px;

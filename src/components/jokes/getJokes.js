@@ -1,52 +1,101 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {connect} from 'react-redux';
+import * as actions from '../../actions';
+
+
+import Jokes from './jokes'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class GetJokes extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
-            data: []
+            allJokes: []
         };
+        // this.addedJokeToState = this.addedJokeToState.bind(this);
       }
 
-      componentDidMount() {
-        axios
-        .get("https://dts-jokester-api.herokuapp.com/jokes")
-        .then(response => {
-          this.setState({
-              data: response.data
-          })
+      
+    // componentDidMount() {
+    //     axios
+    //     .get("https://dts-jokester-api.herokuapp.com/jokes")
+    //     .then(response => {
+    //         this.setState({
+    //             allJokes: response.data
+        
+    //         })
+
+    //     })
+    //     .catch(error => {
+    //         console.log(error);
+    //     });
+    // }
+
+    // componentWillUnmount() {
+    //     this.setState({
+    //         data: this.state.data
+    //     })
+    // }
+
+
+    // addedJokeToState = (data) => {
+    //     this.setState(({
+    //         addedJokeToState: [data]
+
+    //     }))
+
+    // }
+    // addJokeToState = () => {
+    //     const {id} = this.state.allJokes;
+    //     axios
+    //     .get(`https://dts-jokester-api.herokuapp.com/joke/${id}`)
+    //     .then(response => {
+    //         // this.setState({
+    //         //     addedJoke: response.data
+    //         // })
+    //         this.setState(state => ({
+    //             addedJokeToState: [ ...state.addedJoke, response.data ]
+    //         }))
+            
+    //         console.log('response',response)
+    //         console.log('state', this.state.addedJokeToState)
+    //         // return (<Profile addedJoke={this.state.addedJoke}></Profile>)
+    
+    
+    //     })
+    //     .catch(error => {
+    //         console.log(error); 
+    //     });
+    // }
+
+    componentDidMount() {
+        this.props.addJoke()
+      }
+
+    renderReduxJokes = () => {
+        const jokes = this.props.jokes.map((joke, index) => {
+          return (
+            <div>
+              <li key={index}>{joke.title}</li>
+              <li key={index}>{joke.content}</li>
+            </div>
+    
+          )
         })
-        .catch(error => {
-          console.log(error);
-        });
+        return jokes;
       }
 
     render() {
-        const { data } = this.state
-        const dataList = data.length ? (
-            data.map((joke) => {
+        const jokes = this.props.jokes
+        const renderJokes = jokes.length ? (
+        // const { allJokes } = this.state
+        // const renderJokes = allJokes.length ? (
+            jokes.map((joke) => {
                 return (
-                    <div key={joke.id} className='cards'>
-                        <div className='cards__front'>
-                            <div className='cards__front__title'>
-                            {joke.title}
-                            </div>
-                            <div>
-                                <img className='cards__front__jester' src={ require('./../../../src/images/jesterGirl.png') } />
-                                <div className='cards__front__jokester'>Jokester</div>
-                            </div>
-                        </div>
-                        <div className='cards__back'>
-                            <div className='cards__back__content' >
-                                {joke.content}
-                            </div>
-                            <img className='cards__back__content__jester' src={ require('./../../../src/images/jesterGirl.png') } />
-                        </div>
-                    </div>
+                    <Jokes {...joke} key={joke.id} /*renderedJoke={joke} /*addedJokeToState={this.addedJokeToState()} */ />
                 )
             })
         ) : (
@@ -58,10 +107,16 @@ class GetJokes extends Component {
 
         return (
             <div className='home__jokes__data'>
-                 {dataList}
+                 {renderJokes}
             </div>
         )
     }
 }
 
-export default GetJokes;
+function mapStateToProps(state) {
+    return {
+        jokes: state.jokesReducer.jokes
+    }
+}
+
+export default connect(mapStateToProps, actions)(GetJokes);

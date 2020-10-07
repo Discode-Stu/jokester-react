@@ -4,6 +4,7 @@ import SiteDescription from './siteDescription/siteDescription';
 import Microphone  from './reactMic/reactMic';
 import GetJokes from './jokes/getJokes';
 import AuthenticatedMic from './reactMic/reactMicAuthenticated';
+import Jokes from './jokes/jokes'
 
 import fire from './config/fire';
 
@@ -20,6 +21,7 @@ export default function() {
                 </div>
                 <div className='home__jokes'>
                     <GetJokes className='home__jokes__data__card' />
+                    {/* <Jokes className='home__jokes__data__card' /> */}
                 </div>
             </div>
         );

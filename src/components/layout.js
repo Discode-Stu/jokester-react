@@ -3,21 +3,23 @@ import { Router, Switch, Route } from "react-router-dom";
 import axios from 'axios';     
 import { useAuth0 } from "@auth0/auth0-react";
 import fire from './config/fire';
-import Login from './firebase/firebaseLogin'
+
 
 import Header from './headernavbar/header';
 import Navbar from './headernavbar/navbar';
 
 import Home from './home';
-
-import SignUp from './pages/signUp';
-import SignIn from './pages/signIn';
-import Cart from './pages/cart'
+// import SignUp from './pages/signUp';
+// import SignIn from './pages/signIn';
+import Login from './firebase/firebaseLogin'
+import Cart from './pages/cart';
+import NoMatch from './pages/noMatch'
 
 import history from '../history';
-import LogoutButton from './pages/logout';
+import Logout from './pages/logout';
 import Profile from './pages/profile';
 import CheckLoginStatus from './checkLoginStatus';
+import Jokes from './jokes/jokes';
 
 
 //google client id:
@@ -107,8 +109,13 @@ class Layout extends Component {
 
   authorizedRoutes() {
     return [
-      <Route path="/cart" component={Cart} />
+      // <Route key='cart' path="/cart" component={Cart} />,
+      <Route key='profile' path="/profile" component={Profile} />,
+      <Route key='logout' path="/logout" component={Logout} />
     ]
+  }
+  loggedOutRoutes() {
+   
   }
 
   render() {
@@ -125,17 +132,22 @@ class Layout extends Component {
             <h2>{this.state.loggedInStatus}</h2>
             {/* {this.state.user ? (<Home/>) : (<Login/>)} */}
             <Switch>
-              <Route path="/home" component={Home} />
+              <Route exact path="/" component={Home} />
               
               {/* <Route path="/sign-in" component={SignIn} /> */}
-              <Route path="/logout" component={LogoutButton} />
+              
               <Route path="/login" component={Login} />
-              <Route path="/profile" component={Profile} />
-              {this.authorizedRoutes}
+              {/* <Route path="/profile" component={Profile} /> */}
+              {this.state.loggedInStatus === 'LOGGED_IN' ? (
+                this.authorizedRoutes()
+                ) : null}
+              {/* {this.state.loggedInStatus === 'LOGGED_IN' ? (
+                this.loggedOutRoutes()
+                ) : null} */}
               
 
 
-              <Route 
+              {/* <Route 
                 path="/sign-in" 
                 render={props => (
                   <SignIn
@@ -146,11 +158,11 @@ class Layout extends Component {
                   />
                 )}
               
-              />
+              /> */}
               {/* <Route path="/sign-in" component={SignIn} /> */}
-              <Route path="/sign-up" component={SignUp} />
-  
-              
+              {/* <Route path="/sign-up" component={SignUp} /> */}
+
+              <Route component={NoMatch} />
             </Switch>
           </div>
         </Router>

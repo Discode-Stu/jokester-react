@@ -18,7 +18,7 @@ import React from 'react';
 import fire from '../config/fire';
 import history from '../../history';
 
-class LogoutButton extends React.Component {
+class Logout extends React.Component {
 
   logout() {
     fire.auth().signOut();
@@ -35,4 +35,4 @@ class LogoutButton extends React.Component {
   }
 }
 
-export default LogoutButton;
+export default Logout;
