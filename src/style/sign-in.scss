@@ -1,68 +1,82 @@
 .sign-in {
-    background-color: $purple;
-    height: 100vh;
-   
+  background-color: $purple;
+  height: 100vh;
 
-    grid-row: content-s/content-e;
-    grid-column: s/e;
+  grid-row: content-s/content-e;
+  grid-column: s/e;
+
+  display: grid;
+  grid-template-columns: [s] 1fr [m] 1fr [e];
+  grid-template-rows: [top-s].2fr[top-e bottom-s] 1fr [bottom-e];
+  &__page-title {
+    padding-left: 150px;
+  }
+
+  &__page-title,
+  &__form {
+    margin-left: 100px;
+  }
+
+  &__sign-up-link {
+    display: flex;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: "Raleway", sans-serif;
+    text-decoration: none;
+    grid-gap: 10px;
+    padding-bottom: 15px;
+    border-bottom: outset 3px $teal;
+    align-self: center;
+    justify-self: center;
+    transform: translateY(22px);
+    color: $yellow;
+    &__text {
+      padding-right: 10px;
+    }
+  }
+
+  &__form {
+    grid-column: s/m;
 
     display: grid;
-    grid-template-columns: [s] 1fr [m] 1fr [e];
-    grid-template-rows: .2fr 1fr;
+    grid-template-rows:
+      [email-s] 150px [email-e password-s] 0px [password-e] minmax(20px, 289px)
+      [line-s] 2px [line-e login-s] .5fr [login-e];
+  }
 
-    &__page-title,
-    &__form {
-        margin-left: 100px;
-    }
- 
-    &__form {
-        grid-column: s/m;
-
-        display: grid; 
-        grid-template-rows: [email-s] 85px [email-e password-s] 85px [password-e] minmax(20px, 289px)[line-s] 2px [line-e login-s] 1fr [login-e];
-
-    }
-
-    &__jester {
-        height: 420px;
-        justify-self: end;
-        transform: translate(-120px,-100px);
-        //transform: translateX(-50px);
-    }
+  &__jester {
+    height: 420px;
+    justify-self: center;
+  }
 }
 
 .sign-in-form {
-    display: grid;
-    grid-template-columns: [s] 1fr [m] 1fr [e];
-   
+  display: grid;
+  grid-template-columns: [s] 1fr [m] 1fr [e];
 
-    &__email,
-    &__password,
-    &__login {
-        grid-column: s/m;
+  &__email,
+  &__password,
+  &__login {
+    grid-column: s/m;
+    padding-left: 180px;
+  }
+  &__email {
+    grid-row: email-s/email-e;
+  }
+  &__password {
+    margin-top: 15px;
+    grid-row: password-s/password-e;
+  }
 
-    }
-    &__email {
-        grid-row: email-s/email-e;
-    }
-    &__password {
-        margin-top: 15px;
-        grid-row: password-s/password-e;
-    }
-
-    &__line {
-        grid-row: line-s/line-e;
-        border-top: 5px outset $teal;
-        grid-column: s/e;
-        margin-right: 100px;
-        width: 89vw;
-        
-    }
-    &__login {
-       // background-color: $teal;
-        margin-top: 39px;
-        grid-row: login-s/login-e;
-    }
-
-
+  &__line {
+    grid-row: line-s/line-e;
+    border-top: 5px outset $teal;
+    grid-column: s/e;
+    margin-right: 100px;
+    width: 89vw;
+  }
+  &__login {
+    margin-top: 39px;
+    grid-row: login-s/login-e;
+  }
 }

@@ -1,101 +1,83 @@
-// .sign-up {
-//     grid-row: content-s/content-e;
-//     grid-column: s/e;
-
-//     &__form {
-
-//     }
-// }
-
-// .sign-up-form {
-
-
-// }
-
 .sign-up {
-    background-color: $purple;
-    height: 100vh;
-   
+  background-color: $purple;
+  height: 100vh;
 
-    grid-row: content-s/content-e;
-    grid-column: s/e;
+  grid-row: content-s/content-e;
+  grid-column: s/e;
+
+  display: grid;
+  grid-template-columns: [s] 1fr [m] 1fr [e];
+  grid-template-rows: [top-s].2fr[top-e bottom-s] 1fr [bottom-e];
+  &__page-title {
+    padding-left: 150px;
+  }
+
+  &__page-title,
+  &__form {
+    margin-left: 100px;
+  }
+
+  &__sign-in-link {
+    display: flex;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: "Raleway", sans-serif;
+    text-decoration: none;
+    grid-gap: 10px;
+    padding-bottom: 15px;
+    border-bottom: outset 3px $teal;
+    align-self: center;
+    justify-self: center;
+    transform: translateY(22px);
+    color: $yellow;
+    &__text {
+      padding-right: 10px;
+    }
+  }
+
+  &__form {
+    grid-column: s/m;
 
     display: grid;
-    grid-template-columns: [s] 1fr [m] 1fr [e];
-    grid-template-rows: .2fr 1fr;
+    grid-template-rows:
+      [email-s] 150px [email-e password-s] 0px [password-e] minmax(20px, 289px)
+      [line-s] 2px [line-e login-s] 0.5fr [login-e];
+  }
 
-    &__page-title,
-    &__form {
-        margin-left: 100px;
-    }
- 
-    &__form {
-        grid-column: s/m;
-
-        display: grid; 
-        grid-template-rows: [name-s] 85px [name-e email-s] 85px [email-e space-s] 35px [space-e password-s] 85px [password-e confirm-s] 85px [confirm-e] minmax(20px, 81px)[line-s] 26px [line-e buttons-s] 1fr [buttons-e];
-        grid-template-columns: [back-s] 137px [back-e space-s] 40px [space-e create-s] 1fr [create-e] 1fr;
-        grid-gap: 15px;
-
-    }
-
-    &__jester {
-        height: 420px;
-        justify-self: end;
-        transform: translate(-120px,-100px);
-        //transform: translateX(-50px);
-    }
+  &__jester {
+    height: 420px;
+    justify-self: center;
+  }
 }
 
 .sign-up-form {
-   // display: grid;
-   // grid-template-columns: [s] 1fr [m] 1fr [e];
-   & > * {
-       grid-column: 1/-1;
-   }
-   
+  display: grid;
+  grid-template-columns: [s] 1fr [m] 1fr [e];
 
-    &__email,
-    &__password,
-    &__login {
-        //grid-column: s/m;
+  &__email,
+  &__password,
+  &__login {
+    grid-column: s/m;
+    padding-left: 180px;
+  }
+  &__email {
+    grid-row: email-s/email-e;
+  }
+  &__password {
+    margin-top: 15px;
+    grid-row: password-s/password-e;
+  }
 
-    }
-    &__name {
-        grid-row: name-s/name-e;
-    }
-    &__email {
-        grid-row: email-s/email-e;
-    }
-    &__password {
-        grid-row: password-s/password-e;
-
-    }
-    &__confirm {
-        grid-row: confirm-s/confirm-e;
-    }
-
-    &__line {
-        grid-row: line-s/line-e;
-        border-top: 5px outset $teal;
-        //grid-column: s/e;
-        margin-right: 100px;
-        // margin-bottom: 24px;
-        width: 89vw;
-        
-    }
-    &__login {
-       // background-color: $teal;
-       // margin-top: 24px;
-        grid-row: buttons-s/buttons-e;
-        grid-column: create-s/create-e;
-    }
-    &__back {
-        grid-row: buttons-s/buttons-e;
-        grid-column: back-s/back-e;
-       // z-index: -1;
-    }
-
-
-
+  &__line {
+    grid-row: line-s/line-e;
+    border-top: 5px outset $teal;
+    grid-column: s/e;
+    margin-right: 100px;
+    width: 89vw;
+  }
+  &__login {
+    // background-color: $teal;
+    margin-top: 39px;
+    grid-row: login-s/login-e;
+  }
 }

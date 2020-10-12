@@ -1,169 +1,111 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import Jokes from '../jokes/jokes'
-import GetJokes from '../jokes/getJokes'
-import axios from 'axios';
-import * as actions from '../../actions'
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { compose } from "redux";
+import { firestoreConnect } from "react-redux-firebase";
+import moment from "moment";
 
-// import React from "react";
-// import axios from 'axios';
-// import React, { Component } from 'react'
+import { addProfileJoke, removeProfileJoke } from "../../actions";
 
-// export default class extends Component {
-//   render() {
-//     return (
-//       <div>
+const Profile = ({
+  profileJokes,
+  removeProfileJoke,
+  email,
+  timeLastLoggedIn,
+  timeCreated,
+}) => {
+  console.log("hello from Profile", profileJokes);
 
-//       </div>
-//     );
-//   }
-// }
-// const Profile = props => {
-//   const {
-//     id,
-//     content,
-//     title,
-//   } = props.joke;
+  const handleRemove = (profileJoke) => {
+    removeProfileJoke(profileJoke);
+  };
 
-
-// const addJokes = () => {
-//     axios
-//     .get(`https://dts-jokester-api.herokuapp.com/joke/${id}`)
-//     .then(response => {
-//         // this.setState({
-//         //     data: response.data
-//         // })
-//         console.log(response)
-
-//     })
-//     .catch(error => {
-//         console.log(error);
-//     });
-// }
-
-
-
-//   return (
-//     <div key={id} className='cards'>
-//         <div className='cards__front'>
-//             <div className='cards__front__title'>
-//             {title}
-//             </div>
-//             <div>
-//                 <img className='cards__front__jester' src={ require('./../../../src/images/jesterGirl.png') } />
-//                 <div className='cards__front__jokester'>Jokester</div>
-//             </div>
-//         </div>
-//         <div className='cards__back'>
-//             <div className='cards__back__content' >
-//                 {content}
-//             </div>
-//             <button className='cards__back__button' onClick={()=>addJokes()} > Add Joke to profile</button>
-//         </div>
-//     </div>
-//   );
-// };
-
-// export default Profile;
-
-
-class Profile extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state= {
-      // profileJokes: [this.props.addedJoke],
-      addedJoke: []
-    }
-
-    // this.getProfileJokes = this.getProfileJokes.bind(this)
-    this.addJokes = this.addJokes.bind(this)
-  }
-
-  // getProfileJokes = () => {
-  //   const { addedJoke } = this.props
-  //   const { profileJokes } = this.state
-  //   this.setState({ profileJokes: addedJoke })
-  //   console.log("addedJoke", addedJoke)
-  //   console.log("profileJokes", profileJokes)
-  // }
-
-  // componentDidMount() {
-  //   this.getProfileJokes()
-  // }
-  addJokes = () => {
-    const {profileJokeId} = this.props;
-    axios
-    .get(`https://dts-jokester-api.herokuapp.com/joke/${profileJokeId}`)
-    .then(response => {
-        // this.setState({
-        //     addedJoke: response.data
-        // })
-        this.setState(state => ({
-            addedJoke: [ ...state.addedJoke, response.data ]
-        }))
-        // this.props.addJokesToProfile(response.data)
-        
-        console.log('response',response)
-        console.log('state', this.state.addedJoke)
-        // return (<Profile addedJoke={this.state.addedJoke}></Profile>)
-
-
-    })
-    .catch(error => {
-        console.log(error); 
-    });
-  }
-
-  componentDidMount() {
-    this.props.addJoke()
-  }
-
-  renderJokes = () => {
-    // const jokes = this.props.jokes.map((joke, index) => {
-    const profileJokes = this.props.profileJokes.map((joke, index) => {
-      return (
-        <div>
-
-          <li key={joke.id}>
-          <div>
-          {joke.title}
-          </div>
-          <div>
-          {joke.content}
+  return (
+    <div className="home__jokes">
+      <div className="home__jokes__data">
+        <div className="cards profile-welcome-card">
+          <div className="cards__front profile-welcome-card__front">
+            <div className="profile-welcome-card__front__welcome">
+              Welcome{" "}
+              {email.charAt(0).toUpperCase() + email.slice(1).split("@")[0]}!
             </div>
-          </li>
-
+            <img
+              className="cards__front__jester profile-welcome-card__front__jester"
+              src={require("./../../../src/images/jesterGirl.png")}
+            />
+            <div className="cards__front__jokester profile-welcome-card__front__jokester">
+              Jokester
+            </div>
+          </div>
+          <div className="cards__back profile-welcome-card__back">
+            <div className="profile-welcome-card__back__message">
+              Hope you are having a spectacular day,{" "}
+              {email.charAt(0).toUpperCase() + email.slice(1).split("@")[0]}!
+              The last time you logged in was{" "}
+              {moment(timeLastLoggedIn, "x").format("llll")} and you have been a
+              valued member since {moment(timeCreated, "x").format("llll")}.
+              Thank-you and happy Joking!
+            </div>
+          </div>
         </div>
 
-      )
-    })
-    return profileJokes;
-  }
-
-
-  render() {
-    const {profileJokes} = this.state
-    return (
-      <div>
-        {/* {profileJokes} Hwllo */}
-        {/* <button style={{height: "25px"}}> helllo </button> */}
-        {/* <button onClick={()=>{this.getProfileJokes()}}>getProfileJokes</button> */}
-        <button onClick={()=>{this.addJokes()}}>addedJoke</button>
-        {this.renderJokes()}
+        {profileJokes &&
+          profileJokes.map((joke) => (
+            <div key={joke.id} className="cards">
+              <div className="cards__front">
+                <div className="cards__front__title">
+                  {joke.profileJoke.title}
+                </div>
+                <div>
+                  <img
+                    className="cards__front__jester"
+                    src={require("./../../../src/images/jesterGirl.png")}
+                  />
+                  <div className="cards__front__jokester">Jokester</div>
+                </div>
+              </div>
+              <div className="cards__back">
+                <div className="cards__back__content">
+                  {joke.profileJoke.content}
+                </div>
+                <button
+                  className="cards__back__button"
+                  onClick={() => handleRemove(joke)}
+                >
+                  Remove Joke
+                </button>
+              </div>
+            </div>
+          ))}
       </div>
-      
+    </div>
+  );
+};
 
-
-    );
-  }
-}
-
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
+  console.log("profile", state);
   return {
-    profileJokes: state.jokesReducer.profileJokes
-  }
-}
+    profileJokes: state.firestore.ordered.profileJokes,
+    uid: state.firebase.auth.uid,
+    email: state.firebase.auth.email,
+    timeCreated: state.firebase.auth.createdAt,
+    timeLastLoggedIn: state.firebase.auth.lastLoginAt,
+  };
+};
 
-export default connect(mapStateToProps, actions)(Profile)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addProfileJoke: (profileJoke) => dispatch(addProfileJoke(profileJoke)),
+    removeProfileJoke: (profileJoke) =>
+      dispatch(removeProfileJoke(profileJoke)),
+  };
+};
 
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  firestoreConnect((ownProps) => [
+    {
+      collection: "profileJokes",
+      where: ["authorId", "==", ownProps.uid],
+    },
+  ])
+)(Profile);

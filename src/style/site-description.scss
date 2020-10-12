@@ -1,111 +1,109 @@
-@import 'variables';
+@import "variables";
 
 .site-description {
-    font-size: 20px;
-    font-family: 'Raleway', sans-serif;
-    color: $purple;
-    line-height: 1.4;
+  font-size: 20px;
+  font-family: "Raleway", sans-serif;
+  color: $purple;
+  line-height: 1.4;
 
-    // width: 60%;
-    // height: 80%;
+  // width: 60%;
+  // height: 80%;
 
-    display: grid;
-    grid-template-rows: [s] 1fr [e];
-    grid-template-columns: [s] 1fr [e];
+  display: grid;
+  grid-template-rows: [s] 1fr [e];
+  grid-template-columns: [s] 1fr [e];
+
+  @media screen and (max-width: 700px) {
+    line-height: 1.5;
+    font-size: 16px;
+  }
+
+  &__front,
+  &__back {
+    backface-visibility: hidden;
+    transition: all 0.3s ease;
+
+    height: 320px;
+    width: 420px;
+    padding-bottom: 4px;
+
+    margin-top: 20px;
+
+    grid-row: s/e;
+    grid-column: s/e;
 
     @media screen and (max-width: 700px) {
-        line-height: 1.5;
-        font-size: 16px;
+      width: 92vw;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+  }
+
+  &__front {
+    background-color: $yellow;
+
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    justify-content: center;
+
+    font-family: "Rock Salt", cursive;
+
+    border: 7px outset $teal;
+
+    @media screen and (max-width: 700px) {
+      padding-top: 10px;
     }
 
-    &__front, 
-    &__back {
-        backface-visibility: hidden;
-        transition: all .3s ease;
+    &__welcome {
+      font-size: 40px;
 
-        height: 420px;
-        width: 420px;
-        padding-bottom: 4px;
-        
+      text-align: center;
 
-        margin-top: 20px;
-
-        grid-row: s/e;
-        grid-column: s/e;
-
-        @media screen and (max-width: 700px) {
-            width: 92vw;
-            margin-left: 10px;
-            margin-right: 10px;
-        }  
+      @media screen and (max-width: 700px) {
+        font-size: 20px;
+      }
     }
 
-    &__front {
-        background-color: $yellow;
+    &__view-directions {
+      font-family: "Raleway", sans-serif;
 
-        display: grid;
-        grid-template-rows: 1fr 1fr;
-        justify-content: center;
+      text-align: center;
+    }
+    &__jester {
+      height: 150px;
 
-        font-family: 'Rock Salt', cursive;
-        
-        border: 7px outset $teal;
+      justify-self: center;
+    }
+  }
 
-        @media screen and (max-width: 700px) {
-            padding-top: 10px;
-        }
+  &__back {
+    background-color: $peach;
 
-        &__welcome {
-            font-size: 40px;
+    padding: 10px;
 
-            text-align: center;
+    transform: rotateY(-180deg);
 
-            @media screen and (max-width: 700px) {
-                font-size: 20px;
-            } 
-        }
+    border: 7px inset $teal;
 
-        &__view-directions {
-            font-family: 'Raleway', sans-serif;
+    display: grid;
 
-            text-align: center;
+    &__jester {
+      height: 150px;
 
-        }
-        &__jester {
-            height: 150px;
-
-            justify-self: center;
-        }
+      justify-self: center;
+      align-self: end;
     }
 
-    &__back {
-        background-color: $peach;
-
-        transform: rotateY(-180deg);
-
-        //padding: 4px;
-        border: 7px inset $teal;
-
-        display: grid;
-
-        &__jester {
-            height: 150px;
-            width: 150px;
-
-            justify-self: center;
-        }
-
-        @media screen and (max-width: 700px) {
-            font-size: 16px;
-        }
+    @media screen and (max-width: 700px) {
+      font-size: 16px;
     }
+  }
 
-    &:hover &__front {
+  &:hover &__front {
     transform: rotateY(180deg);
-    }
-    
-    &:hover &__back {
-    transform: rotateY(0deg);
-    }
-}
+  }
 
+  &:hover &__back {
+    transform: rotateY(0deg);
+  }
+}

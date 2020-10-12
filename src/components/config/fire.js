@@ -2,7 +2,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore'
 import 'firebase/auth'
 
-var config = {
+var firebaseConfig = {
     apiKey: "AIzaSyCzfZTKuiVCMyxxVy7fWUvGGwIXXqQh34g",
     authDomain: "jokester-290420.firebaseapp.com",
     databaseURL: "https://jokester-290420.firebaseio.com",
@@ -13,9 +13,8 @@ var config = {
     measurementId: "G-QEM21YYRSW"
   };
 
-  firebase.initializeApp(config);
-  firebase.firestore().settings({ timestampsInSnapshots: true });
+firebase.initializeApp(firebaseConfig);
+firebase.firestore();
+
+export default firebase;
   
-  export default firebase;
-
-

@@ -9,51 +9,43 @@
 
 // export default LoginButton;
 
+import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import React, { Component } from 'react';
-
-import { SignInForm } from './signInForm';
-import PageTitle from '../pageTitle/pageTitle';
-
+import SignInForm from "./signInForm";
+import PageTitle from "../pageTitle/pageTitle";
 
 export default class SignIn extends Component {
-    constructor(props) {
-        super(props);
-    
-        this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this);
-        this.handleUnsuccessfulAuth = this.handleUnsuccessfulAuth.bind(this);
-      }
-  
-    handleSuccessfulAuth() {
-        this.props.handleSuccessfulLogin();
-        this.props.history.push('/');
-    }
+  constructor(props) {
+    super(props);
+  }
 
-    handleUnsuccessfulAuth() {
-        this.props.handleUnsuccessfulLogin();
-    }
+  onSubmit = (fields) => {
+    console.log(fields);
+  };
 
-    onSubmit = (fields) => {
-        console.log(fields)
-    }
-
-    // authorized() {
-    //     this.props.authListener();
-    // }
-
-    render() {
-        return (
-            <div className='sign-in'>
-                <PageTitle className='sign-in__page-title' title='Login' />
-                <SignInForm 
-                onSubmit={this.onSubmit} 
-                className='sign-in__form'
-                handleSuccessfulAuth={this.handleSuccessfulAuth} 
-                handleUnsuccessfulAuth={this.handleUnsuccessfulAuth} />
-                <img className='sign-in__jester' src={ require('./../../../src/images/jesterGirl.png') } />
-            </div>
-        );
-    }
-} 
-
-
+  render() {
+    return (
+      <div className="sign-in">
+        <PageTitle className="sign-in__page-title" title="Login" />
+        <NavLink
+          className="sign-in__sign-up-link"
+          to="/sign-up"
+          activeClassName="nav-link-active"
+        >
+          <div className="sign-in__sign-up-link__text">New to Jokester? Click here! </div> 
+          <FontAwesomeIcon className="fas" title="Sign Up" icon="user-plus" />
+        </NavLink>
+        <SignInForm
+          onSubmit={this.onSubmit}
+          className="sign-in__form"
+        />
+        <img
+          className="sign-in__jester"
+          src={require("./../../../src/images/jesterGirl.png")}
+        />
+      </div>
+    );
+  }
+}

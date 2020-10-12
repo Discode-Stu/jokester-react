@@ -1,0 +1,37 @@
+// .profile-welcome-card {
+//     // position: fixed;
+//     &__front {
+//         size: 20px;
+//     }
+
+//     &__back {
+
+//     }
+// }
+
+.profile-welcome-card__front {
+  &__welcome {
+    transform: translateY(6px);
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  &__jester {
+    transform: translateY(16px);
+  }
+
+  &__jokester {
+    transform: translateY(-5px);
+  }
+}
+
+.profile-welcome-card__back {
+  line-height: 1.5;
+
+  .profile-welcome-card__back__message {
+    font-size: 16px;
+    padding: 5px;
+    border-top: 3px $teal inset;
+    border-bottom: 3px $teal inset;
+  }
+}

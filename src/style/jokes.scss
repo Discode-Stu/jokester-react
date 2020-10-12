@@ -1,103 +1,111 @@
-@import 'variables';
+@import "variables";
 
 .home__jokes {
+  display: grid;
+  justify-items: center;
+
+  background-color: $purple;
+
+  .home__jokes__data {
     display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     justify-items: center;
 
-    background-color: $purple;
+    //background-color: $peach;
 
-    .home__jokes__data {
+    // box-shadow: ;
+    margin-top: 10px;
+    overflow-y: scroll;
+    height: 500px;
+    width: 1530px;
+    padding: 50px;
+    grid-gap: 20px;
+
+    border-top: 5px outset $teal;
+
+    @media screen and (max-width: 1300px) {
+      width: 90vw;
+
+      grid-template-columns: repeat(auto-fill, minmax(260px, 265px));
+    }
+
+    .cards {
+      display: grid;
+      grid-template-rows: [s] 1fr [m] 1fr [e];
+
+      &__front,
+      &__back {
+        font-size: 16px;
+
+        height: 260px;
+        width: 240px;
+        padding: 5px;
+
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        align-items: center;
+      }
+
+      &__front {
+        border: 7px outset $teal;
+
+        color: $purple;
+        background-color: $yellow;
+
+        font-family: "Raleway", sans-serif;
+
+        text-align: center;
         justify-items: center;
 
-        //background-color: $peach;
-        
-        // box-shadow: ;
-        margin-top: 10px;
-        overflow-y: scroll;
-        height: 500px;
-        width: 1530px;
-        padding: 50px;
-        grid-gap: 20px;
-
-        border-top: 5px outset $teal;
-        
-
-
-
-        @media screen and (max-width: 1300px) {
-            width: 90vw;
-
-            grid-template-columns: repeat(auto-fill, minmax(260px, 265px));
-
+        &__title {
+          font-size: 20px;
         }
 
-        .cards{
-            display: grid;
-            grid-template-rows: [s] 1fr  [m] 1fr [e];
+        &__jester {
+          height: 125px;
 
-            &__front, 
-            &__back {
-                font-size: 16px;
-
-                height: 260px;
-                width: 240px;
-                padding: 5px;
-
-                display: grid;
-                align-items: center;
-
-
-            }
-
-            &__front {
-                border: 7px outset $teal;
-
-                color: $purple;
-                background-color: $yellow;
-
-                font-family: 'Raleway', sans-serif;
-
-                text-align: center;
-                justify-items: center;
-
-                &__title {
-                    font-size: 20px;
-                }
-
-                &__jester {
-                    height: 125px;
-
-                    grid-row:  m/e;
-                    justify-self: center;
-                }
-
-                &__jokester {
-                    font-family: 'Rock Salt', cursive;
-                }
-            }
-            
-            &__back {
-                color: $purple;
-                background-color: $peach;
-
-                font-family: 'Raleway', sans-serif;
-
-                border: 7px inset $teal;
-
-                &__button {
-                    height: 35px;
-                }
-                
-                &__content__jester {
-                    height: 125px;
-                    grid-row:  m/e;
-                    justify-self: center;
-                }
-            }
+          grid-row: m/e;
+          justify-self: center;
         }
+
+        &__jokester {
+          font-family: "Rock Salt", cursive;
+        }
+      }
+
+      &__back {
+        color: $purple;
+        background-color: $peach;
+
+        font-family: "Raleway", sans-serif;
+
+        border: 7px inset $teal;
+
+        &__button {
+          justify-self: center;
+          height: 35px;
+          width: 165px;
+          color: $purple;
+          border-radius: 50px;
+          background-color: $yellow;
+          border: 3px outset $teal;
+          &:focus {
+            outline: none;
+            background-color: $yellow;
+          }
+          &:active {
+            border: 3px inset $teal;
+          }
+          &:hover {
+            background-color: $tan;
+          }
+        }
+      }
+
+      &__content__jester {
+        height: 125px;
+        grid-row: m/e;
+        justify-self: center;
+      }
     }
+  }
 }
-
-
