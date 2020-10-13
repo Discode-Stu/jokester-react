@@ -41,7 +41,7 @@ class NavigationComponent extends Component {
           ? this.dynamicLink("/sign-in", "Login", "sign-in-alt")
           : null}
         {loggedInStatus === "NOT_LOGGED_IN"
-          ? this.dynamicLink("/sign-up", "Login", "user-plus")
+          ? this.dynamicLink("/sign-up", "Sign Up", "user-plus")
           : null}
         {loggedInStatus === "LOGGED_IN"
           ? this.dynamicLink("/profile", "Profile", "address-card")
