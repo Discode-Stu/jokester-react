@@ -23,7 +23,6 @@ body {
 @import "variables";
 @import "layout";
 @import "headernavbar";
-@import "react-mic";
 @import "jokes";
 @import "site-description";
 @import "loading";
@@ -34,6 +33,7 @@ body {
 @import "page-title";
 @import "form-fields";
 @import "profile";
+@import "logout";
 
 .Toastify__toast--success {
   color: $purple;

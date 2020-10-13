@@ -4,9 +4,7 @@ import { compose } from "redux";
 import { firestoreConnect } from "react-redux-firebase";
 
 import {
-  addProfileJokeToFirestore,
-  addProfileJoke,
-  addJoke,
+  addProfileJoke
 } from "../../actions";
 
 class Jokes extends Component {
@@ -62,10 +60,7 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addProfileJokeToFirestore: (profileJoke) =>
-      dispatch(addProfileJokeToFirestore(profileJoke)),
-    addProfileJoke: (profileJoke) => dispatch(addProfileJoke(profileJoke)),
-    addJoke: (jokes) => dispatch(addJoke(jokes)),
+    addProfileJoke: (profileJoke) => dispatch(addProfileJoke(profileJoke))
   };
 };
 

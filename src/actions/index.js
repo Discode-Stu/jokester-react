@@ -1,8 +1,6 @@
-import { SET_JOKES, SET_PROFILE_JOKE, ADD_PROFILE_JOKE } from "./types";
+import { SET_JOKES, SET_PROFILE_JOKE } from "./types";
 
 import axios from "axios";
-
-// ?import firebase from "../components/config/fire";
 
 export function addJoke() {
   return function (dispatch) {
@@ -25,7 +23,6 @@ export function addProfileJoke(id) {
   return function (dispatch, getState, { getFirebase }) {
     const firestore = getFirebase().firestore();
     const authorId = getState().firebase.auth.uid;
-    // const authorId = getState().firebase.auth.uid;
     axios
       .get(`https://dts-jokester-api.herokuapp.com/joke/${id}`)
       .then((response) => {

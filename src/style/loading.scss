@@ -1,17 +1,17 @@
-@import 'variables';
+@import "variables";
 
 .loading {
-    display: flex;
+  display: flex;
 
-    .loading__message {
-        font-size: 30px;
-        color: $teal;
-        padding-right: 15px;
-        font-family: 'Rock Salt', cursive;
-    }
+  .loading__message {
+    font-size: 30px;
+    color: $teal;
+    padding-right: 15px;
+    font-family: "Rock Salt", cursive;
+  }
 
-    .loading__disc {
-        padding: 10px;
-        font-size: 45px;
-    }
+  .loading__disc {
+    padding: 10px;
+    font-size: 45px;
+  }
 }

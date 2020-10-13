@@ -16,7 +16,7 @@
     // box-shadow: ;
     margin-top: 10px;
     overflow-y: scroll;
-    height: 500px;
+    height: 842px;
     width: 1530px;
     padding: 50px;
     grid-gap: 20px;
@@ -108,4 +108,9 @@
       }
     }
   }
+}
+
+.cards__back__content__jester {
+  height: 125px;
+  justify-self: center;
 }

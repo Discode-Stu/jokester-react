@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { firestoreConnect } from "react-redux-firebase";
 import moment from "moment";
 
-import { addProfileJoke, removeProfileJoke } from "../../actions";
+import { removeProfileJoke } from "../../actions";
 
 const Profile = ({
   profileJokes,
@@ -20,8 +20,8 @@ const Profile = ({
   };
 
   return (
-    <div className="home__jokes">
-      <div className="home__jokes__data">
+    <div className="home__jokes profile-wrapper ">
+      <div className="home__jokes__data profile-container">
         <div className="cards profile-welcome-card">
           <div className="cards__front profile-welcome-card__front">
             <div className="profile-welcome-card__front__welcome">
@@ -47,7 +47,6 @@ const Profile = ({
             </div>
           </div>
         </div>
-
         {profileJokes &&
           profileJokes.map((joke) => (
             <div key={joke.id} className="cards">
@@ -94,7 +93,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addProfileJoke: (profileJoke) => dispatch(addProfileJoke(profileJoke)),
     removeProfileJoke: (profileJoke) =>
       dispatch(removeProfileJoke(profileJoke)),
   };

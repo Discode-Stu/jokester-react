@@ -1,4 +1,4 @@
-.sign-in {
+.logout {
   background-color: $purple;
   height: 100vh;
 
@@ -6,10 +6,39 @@
   grid-column: s/e;
 
   display: grid;
-  grid-template-columns: [s] 1fr [m] 1fr [e];
+  grid-template-columns: [s] 1fr [e];
   grid-template-rows: [top-s].2fr[top-e bottom-s] 1fr [bottom-e];
-  &__page-title {
-    padding-left: 150px;
+
+  &__page-title-wrapper {
+    padding-left: 200px;
+    padding-right: 200px;
+    &__page-title {
+      padding-left: 150px;
+    }
+  }
+  &__button-wrapper {
+    padding-left: 400px;
+    &__button {
+      font-family: "Raleway", sans-serif;
+
+      color: $purple;
+      font-size: 18px;
+      height: 55px;
+      width: 243px;
+      border-radius: 50px;
+      background-color: $yellow;
+      border: 3px outset $teal;
+
+      &:focus {
+        outline: none;
+        // background-color: $tan;
+        border: 3px inset $yellow;
+      }
+
+      &:hover {
+        background-color: $tan;
+      }
+    }
   }
 
   &__page-title,

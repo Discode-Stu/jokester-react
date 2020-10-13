@@ -1,70 +1,67 @@
-@import 'variables';
+@import "variables";
 
 .header {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 
-    width: 100%;
-    background-color: $yellow;
-    
+  width: 100%;
+  background-color: $yellow;
+
+  @media screen and (max-width: 700px) {
+    justify-content: flex-start;
+  }
+
+  &__image-jester {
+    height: 160px;
+
     @media screen and (max-width: 700px) {
-        justify-content: flex-start;
+      height: 130px;
+    }
+  }
+
+  &__title {
+    &__jokester {
+      font-size: 60px;
+      font-family: "Rock Salt", cursive;
+
+      @media screen and (max-width: 700px) {
+        font-size: 40px;
+      }
     }
 
-    &__image-jester {
-        height: 160px;
+    &__desription {
+      font-size: 18px;
+      font-family: "Raleway", sans-serif;
 
-        @media screen and (max-width: 700px) {
-            height: 130px;
-        }
+      transform: translateY(-20px) translateX(18px);
     }
-
-    &__title {
-        &__jokester {
-            font-size: 60px;
-            font-family: 'Rock Salt', cursive;
- 
-            @media screen and (max-width: 700px) {
-                font-size: 40px;
-            }
-        }
-
-        &__desription {
-            font-size: 18px;
-            font-family: 'Raleway', sans-serif;
-
-            transform: translateY(-20px) translateX(18px);
-        }
-    }
+  }
 }
 
 .navbar {
-    background-color: $teal;
-    border-bottom: 5px groove $teal;
-    border-top: 5px groove $teal;
+  background-color: $teal;
+  border-bottom: 5px groove $teal;
+  border-top: 5px groove $teal;
 
-    display: flex;
-    justify-content: flex-end;
-    align-items:center;
-    grid-gap: 35px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  grid-gap: 35px;
 
-    font-size: 26px;
-    color: $tan;
+  font-size: 26px;
+  color: $tan;
 
-    padding-right: 40px;
-    
+  padding-right: 40px;
 
-    .nav-link-wrapper {
-      //  color: $tan;
-        .nav-link-wrapper__link {
-            color: $purple;
-        }
-
-        .nav-link-active {
-            color: $yellow;
-        
-        }
+  .nav-link-wrapper {
+    //  color: $tan;
+    .nav-link-wrapper__link {
+      color: $purple;
     }
-}
 
+    .nav-link-active {
+      color: $yellow;
+    }
+  }
+}

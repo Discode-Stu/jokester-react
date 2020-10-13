@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import axios from "axios";
 import { connect } from "react-redux";
+
 import * as actions from "../../actions";
-import { addJoke } from "../../actions";
 
 import Jokes from "./jokes";
 
@@ -21,14 +20,7 @@ class GetJokes extends Component {
     const jokes = this.props.jokes;
     const renderJokes = jokes.length ? (
       jokes.map((joke) => {
-        return (
-          <Jokes
-            {...joke}
-            key={
-              joke.id
-            } /*renderedJoke={joke} /*addedJokeToState={this.addedJokeToState()} */
-          />
-        );
+        return <Jokes {...joke} key={joke.id} />;
       })
     ) : (
       <div className="loading">
@@ -46,12 +38,5 @@ function mapStateToProps(state) {
     jokes: state.jokesReducer.jokes,
   };
 }
-
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         addJoke: jokes => dispatch(addJoke(jokes))
-
-//     }
-// }
 
 export default connect(mapStateToProps, actions)(GetJokes);

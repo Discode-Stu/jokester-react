@@ -1,8 +1,10 @@
 import React from "react";
-import fire from "../config/fire";
-import history from "../../history";
-import { signOut } from "../../actions/authActions";
 import { connect } from "react-redux";
+
+import history from "../../history";
+
+import { signOut } from "../../actions/authActions";
+import PageTitle from "../pageTitle/pageTitle";
 
 class Logout extends React.Component {
   logout = () => {
@@ -13,9 +15,21 @@ class Logout extends React.Component {
 
   render() {
     return (
-      <div style={{ textAlign: "center" }}>
-        <h1>You Are Logged In</h1>
-        <button onClick={this.logout}>Logout</button>
+      <div className="logout">
+        <div className="logout__page-title-wrapper">
+          <PageTitle
+            className="logout__page-title-wrapper__page-title"
+            title="Logout"
+          />
+        </div>
+        <div className="logout__button-wrapper">
+          <button
+            className="logout__button-wrapper__button"
+            onClick={this.logout}
+          >
+            Logout
+          </button>
+        </div>
       </div>
     );
   }

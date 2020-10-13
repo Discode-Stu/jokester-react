@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 
 import SignUpForm from "./signUpForm";
 import PageTitle from "../pageTitle/pageTitle";
+
 export default class SignUp extends Component {
   onSubmit = (fields) => {
     console.log(fields);

@@ -1,16 +1,6 @@
-// import React from "react";
-// import { useAuth0 } from "@auth0/auth0-react";
-
-// const LoginButton = () => {
-//   const { loginWithRedirect } = useAuth0();
-
-//   return <button onClick={() => loginWithRedirect()}>Log In</button>;
-// };
-
-// export default LoginButton;
-
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import SignInForm from "./signInForm";
@@ -34,13 +24,12 @@ export default class SignIn extends Component {
           to="/sign-up"
           activeClassName="nav-link-active"
         >
-          <div className="sign-in__sign-up-link__text">New to Jokester? Click here! </div> 
+          <div className="sign-in__sign-up-link__text">
+            New to Jokester? Click here!{" "}
+          </div>
           <FontAwesomeIcon className="fas" title="Sign Up" icon="user-plus" />
         </NavLink>
-        <SignInForm
-          onSubmit={this.onSubmit}
-          className="sign-in__form"
-        />
+        <SignInForm onSubmit={this.onSubmit} className="sign-in__form" />
         <img
           className="sign-in__jester"
           src={require("./../../../src/images/jesterGirl.png")}

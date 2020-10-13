@@ -1,76 +1,70 @@
-@import 'variables';
+@import "variables";
 
 .form-input {
-    display: grid;
-    grid-gap: 6.5px;
-    font-family: 'Raleway', sans-serif;
+  display: grid;
+  grid-gap: 6.5px;
+  font-family: "Raleway", sans-serif;
 
-    & > * {
-        padding-left: 15px;
+  & > * {
+    padding-left: 15px;
+  }
+
+  ::placeholder {
+    color: $purple;
+  }
+
+  &__label,
+  &__input {
+    &:focus {
+      outline: none;
+      background-color: $tan;
     }
+  }
+  &__label {
+    color: $purple;
+    font-size: 20px;
+  }
+  &__input {
+    color: $purple;
 
-    ::placeholder {
-        color: $purple;
-    }
-    
-    &__label,
-    &__input {
-        &:focus {
-            outline: none;
-            background-color: $tan;
+    box-sizing: border-box;
+    height: 55px;
+    width: 426px;
+    border: 3px inset $teal;
+    border-radius: 50px;
 
-        }
-    }
-    &__label {
-        color: $purple;
-        font-size: 20px;
-
-
-    }
-    &__input {
-        color: $purple;
-        
-        box-sizing: border-box;
-        height: 55px;
-        width: 426px;
-        border: 3px inset $teal;
-        border-radius: 50px;
-        
-        background-color: $yellow;
-        font-size: 20px;
-
-    }
+    background-color: $yellow;
+    font-size: 20px;
+  }
 }
 
 .form-button {
+  background-color: $purple;
 
-    background-color: $purple;
+  &__button {
+    font-family: "Raleway", sans-serif;
 
-    &__button {
-        font-family: 'Raleway', sans-serif;
+    color: $purple;
+    font-size: 18px;
+    height: 55px;
+    width: 243px;
+    border-radius: 50px;
+    background-color: $yellow;
+    border: 3px outset $teal;
 
-        color: $purple;
-        font-size: 18px;
-        height: 55px;
-        width: 243px;
-        border-radius: 50px;
-        background-color: $yellow;
-        border: 3px outset $teal;
-
-        &:focus {
-            outline: none;
-            // background-color: $tan;
-            border: 3px inset $yellow;
-
-        }
-
-        &:hover {
-            background-color: $tan;
-        }
+    &:focus {
+      outline: none;
+      // background-color: $tan;
+      border: 3px inset $yellow;
     }
-    &__back-button {
-        background-color: $peach;
-        // color: ;
-        width: 137px;
+
+    &:hover {
+      background-color: $tan;
     }
+  }
+  &__back-button {
+    background-color: $peach;
+    // color: ;
+    width: 137px;
+  }
 }

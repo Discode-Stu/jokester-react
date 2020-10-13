@@ -1,8 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
-
-import fire from "../config/fire";
-
 import { reduxForm, Field } from "redux-form";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
@@ -32,10 +28,6 @@ class SignInForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.signIn(this.state);
-  };
-
-  historyPush = () => {
-    history.push("/");
   };
 
   render() {

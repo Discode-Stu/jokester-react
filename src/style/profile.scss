@@ -8,7 +8,11 @@
 
 //     }
 // }
-
+.profile-wrapper {
+  grid-row: content-s/content-e;
+  height: 100vh;
+  padding-top: 10px;
+}
 .profile-welcome-card__front {
   &__welcome {
     transform: translateY(6px);
