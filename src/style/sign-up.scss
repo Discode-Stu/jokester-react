@@ -1,37 +1,55 @@
 .sign-up {
   background-color: $purple;
   height: 100vh;
+  width: 100vw;
 
   grid-row: content-s/content-e;
   grid-column: s/e;
 
   display: grid;
   grid-template-columns: [s] 1fr [m] 1fr [e];
-  grid-template-rows: [top-s].2fr[top-e bottom-s] 1fr [bottom-e];
+  grid-template-rows: [top-s] 0.2fr [top-e bottom-s] 1fr [bottom-e];
+
   &__page-title {
     padding-left: 150px;
+
+    @media screen and (max-width: 900px) {
+      padding-left: 0px;
+    }
   }
 
   &__page-title,
   &__form {
     margin-left: 100px;
+
+    @media screen and (max-width: 900px) {
+      margin-left: 5px;
+    }
   }
 
   &__sign-in-link {
     display: flex;
+    align-self: center;
+    justify-self: center;
+    transform: translateY(21px);
+
     font-size: 18px;
     font-weight: 600;
     font-family: "Raleway", sans-serif;
     text-decoration: none;
+    color: $yellow;
+
     grid-gap: 10px;
     padding-bottom: 15px;
     border-bottom: outset 3px $teal;
-    align-self: center;
-    justify-self: center;
-    transform: translateY(21px);
-    color: $yellow;
+
     &__text {
       padding-right: 10px;
+    }
+
+    @media screen and (max-width: 900px) {
+      grid-column: s/e;
+      justify-self: center;
     }
   }
 
@@ -42,11 +60,27 @@
     grid-template-rows:
       [email-s] 150px [email-e password-s] 0px [password-e] minmax(20px, 289px)
       [line-s] 2px [line-e login-s] 0.5fr [login-e];
+
+    @media screen and (max-width: 900px) {
+      grid-template-rows:
+        [email-s] 150px [email-e password-s] 0px [password-e] 200px
+        [line-s] 2px [line-e login-s] 0.5fr [login-e];
+    }
   }
 
   &__jester {
     height: 420px;
     justify-self: center;
+
+    @media screen and (max-width: 900px) {
+      height: 210px;
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    grid-template-columns: [s] 1fr [e];
+    grid-template-rows: [top-s].2fr[top-e bottom-s] 1fr [bottom-e];
+    // width: 50%;
   }
 }
 
@@ -59,6 +93,13 @@
   &__login {
     grid-column: s/m;
     padding-left: 180px;
+
+    @media screen and (max-width: 900px) {
+      // padding-left: 20px;
+      padding-left: 0px;
+      justify-self: flex-start;
+      grid-column: s/e;
+    }
   }
   &__email {
     grid-row: email-s/email-e;
@@ -75,9 +116,13 @@
     margin-right: 100px;
     width: 89vw;
   }
+
   &__login {
-    // background-color: $teal;
     margin-top: 39px;
     grid-row: login-s/login-e;
+  }
+
+  @media screen and (max-width: 900px) {
+    grid-template-columns: [s] 1fr [e];
   }
 }

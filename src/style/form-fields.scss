@@ -35,6 +35,10 @@
 
     background-color: $yellow;
     font-size: 20px;
+
+    @media screen and (max-width: 900px) {
+      width: 90vw;
+    }
   }
 }
 
@@ -54,17 +58,15 @@
 
     &:focus {
       outline: none;
-      // background-color: $tan;
       border: 3px inset $yellow;
     }
 
     &:hover {
       background-color: $tan;
     }
-  }
-  &__back-button {
-    background-color: $peach;
-    // color: ;
-    width: 137px;
+
+    @media screen and (max-width: 900px) {
+      width: 90vw;
+    }
   }
 }

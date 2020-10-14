@@ -5,8 +5,6 @@ import { Redirect } from "react-router-dom";
 
 import { FormInput, FormButton } from "./formFields";
 
-import history from "../../history";
-
 import { signIn } from "../../actions/authActions";
 
 class SignInForm extends Component {
@@ -35,42 +33,39 @@ class SignInForm extends Component {
     const { uid } = this.props;
     if (uid) return <Redirect to="/" />;
     return (
-      <div>
-        <div>{this.state.errorText}</div>
-        <form
-          onSubmit={this.handleSubmit}
-          className={`${className} sign-in-form`}
-        >
-          <Field
-            className="sign-in-form__email"
-            id="email"
-            type="email"
-            title="Email"
-            placeholder="Email"
-            name="email"
-            onChange={this.handleChange}
-            component={FormInput}
-          />
-          <Field
-            className="sign-in-form__password"
-            id="password"
-            type="password"
-            title="Password"
-            placeholder="Password"
-            name="password"
-            onChange={this.handleChange}
-            component={FormInput}
-          />
-          <div className="sign-in-form__line"></div>
-          <Field
-            className="sign-in-form__login"
-            type="submit"
-            title="Login"
-            name="login"
-            component={FormButton}
-          />
-        </form>
-      </div>
+      <form
+        onSubmit={this.handleSubmit}
+        className={`${className} sign-in-form`}
+      >
+        <Field
+          className="sign-in-form__email"
+          id="email"
+          type="email"
+          title="Email"
+          placeholder="Email"
+          name="email"
+          onChange={this.handleChange}
+          component={FormInput}
+        />
+        <Field
+          className="sign-in-form__password"
+          id="password"
+          type="password"
+          title="Password"
+          placeholder="Password"
+          name="password"
+          onChange={this.handleChange}
+          component={FormInput}
+        />
+        <div className="sign-in-form__line"></div>
+        <Field
+          className="sign-in-form__login"
+          type="submit"
+          title="Login"
+          name="login"
+          component={FormButton}
+        />
+      </form>
     );
   }
 }

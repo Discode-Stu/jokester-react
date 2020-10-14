@@ -19,14 +19,27 @@ const Profile = ({
     removeProfileJoke(profileJoke);
   };
 
+  const handleSliceEmail = () => {
+    const sliceEmail =
+      email.charAt(0).toUpperCase() + email.slice(1).split("@")[0];
+    return sliceEmail;
+  };
+  const handleTimeLastLoggedIn = () => {
+    const lastLogged = moment(timeLastLoggedIn, "x").format("llll");
+    return lastLogged;
+  };
+  const handleTimeCreated = () => {
+    const memberSince = moment(timeCreated, "x").format("llll");
+    return memberSince;
+  };
+
   return (
     <div className="home__jokes profile-wrapper ">
       <div className="home__jokes__data profile-container">
         <div className="cards profile-welcome-card">
           <div className="cards__front profile-welcome-card__front">
             <div className="profile-welcome-card__front__welcome">
-              Welcome{" "}
-              {email.charAt(0).toUpperCase() + email.slice(1).split("@")[0]}!
+              Welcome {handleSliceEmail()}!
             </div>
             <img
               className="cards__front__jester profile-welcome-card__front__jester"
@@ -38,12 +51,12 @@ const Profile = ({
           </div>
           <div className="cards__back profile-welcome-card__back">
             <div className="profile-welcome-card__back__message">
-              Hope you are having a spectacular day,{" "}
-              {email.charAt(0).toUpperCase() + email.slice(1).split("@")[0]}!
-              The last time you logged in was{" "}
-              {moment(timeLastLoggedIn, "x").format("llll")} and you have been a
-              valued member since {moment(timeCreated, "x").format("llll")}.
-              Thank-you and happy Joking!
+              <ul>User Name: {handleSliceEmail()}</ul>
+              <ul>Member since: {handleTimeCreated()}</ul>
+              <ul>
+                The last time you logged in:{handleTimeLastLoggedIn()}
+                {}
+              </ul>
             </div>
           </div>
         </div>

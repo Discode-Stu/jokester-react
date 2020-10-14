@@ -1,19 +1,13 @@
-// .profile-welcome-card {
-//     // position: fixed;
-//     &__front {
-//         size: 20px;
-//     }
-
-//     &__back {
-
-//     }
-// }
 .profile-wrapper {
   grid-row: content-s/content-e;
-  height: 100%;
-  padding-top: 10px;
-}
 
+  height: 100vh;
+ 
+  background-color: $purple;
+}
+.profile-container {
+  background-color: $purple;
+}
 
 .profile-welcome-card__front {
   &__welcome {

@@ -1,11 +1,15 @@
 @import "variables";
 
+.container {
+  background-color: $purple;
+}
+
 .layout {
   display: grid;
   grid-template-rows: [header-s] 180px [header-e nav-s] 50px [nav-e content-s] 1fr [content-e]; //cards-s] 1fr [cards-e];
   grid-template-columns: [s] 1fr [e];
 
-  @media (max-width: 700px) {
-    grid-template-rows: [header-s] 0.2fr [header-e nav-s] 0.05fr [nav-e description-s] 0.3fr [description-e mic-s] 0.55fr [mic-e cards-s] 1fr [cards-e];
+  @media (max-width: 1200px) {
+    grid-template-rows: [header-s] 180px [header-e nav-s] 50px [nav-e description-s] 0.3fr [description-e cards-s] 1fr [cards-e];
   }
 }

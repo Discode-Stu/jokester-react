@@ -1,10 +1,14 @@
-// html {
-//     font-size: 62.5%; // 1rem is 10px
-// }
+html {
+  font-size: 62.5%; // 1rem is 10px
+}
+
+@import "variables";
 
 body {
-  overflow-x: hidden;
+  overflow-x: auto;
   font-weight: normal;
+
+  background-color: $purple;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -16,7 +20,8 @@ body {
 *::after,
 *::before {
   margin: 0;
-  padding: 0;
+  padding: 0px;
+
   box-sizing: inherit;
 }
 

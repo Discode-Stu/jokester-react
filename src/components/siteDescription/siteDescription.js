@@ -1,5 +1,7 @@
 import React from "react";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 export default function SiteDescription() {
   return (
     <div className="site-description">
@@ -19,7 +21,8 @@ export default function SiteDescription() {
         <p className="site-description__back__text">
           Welcome to Jokester! Hover over the joke cards below to reveal a joke!
           Click on the "Add Joke to Profile" button to add your favorite jokes
-          to your profile!
+          to your profile! View your profile by clicking on the{" "}
+          {<FontAwesomeIcon icon="address-card" />} in the navigation bar!
         </p>
         <img
           className="site-description__back__jester"

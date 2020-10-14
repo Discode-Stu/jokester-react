@@ -1,5 +1,10 @@
 @import "variables";
+.home {
+    height: 100vh;
+    background-color: $purple;
 
+    grid-row: content-s/content-e;
+}
 .home__jokes {
   display: grid;
   justify-items: center;
@@ -11,21 +16,18 @@
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     justify-items: center;
 
-    //background-color: $peach;
-
-    // box-shadow: ;
     margin-top: 10px;
     overflow-y: scroll;
     height: 842px;
-    width: 1530px;
+    width: 90vw;
     padding: 50px;
     grid-gap: 20px;
 
-    border-top: 5px outset $teal;
+    border-top: 9px ridge $teal;
 
     @media screen and (max-width: 1300px) {
       width: 90vw;
-
+    
       grid-template-columns: repeat(auto-fill, minmax(260px, 265px));
     }
 
