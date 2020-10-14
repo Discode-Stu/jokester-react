@@ -6,10 +6,6 @@
 
 .layout {
   display: grid;
-  grid-template-rows: [header-s] 180px [header-e nav-s] 50px [nav-e content-s] 1fr [content-e]; //cards-s] 1fr [cards-e];
+  grid-template-rows: [header-s] 180px [header-e nav-s] 50px [nav-e content-s] 1fr [content-e];
   grid-template-columns: [s] 1fr [e];
-
-  @media (max-width: 1200px) {
-    grid-template-rows: [header-s] 180px [header-e nav-s] 50px [nav-e description-s] 0.3fr [description-e cards-s] 1fr [cards-e];
-  }
 }

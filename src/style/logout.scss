@@ -1,38 +1,36 @@
 .logout {
   background-color: $purple;
   height: 100vh;
+  width: 100vw;
 
   grid-row: content-s/content-e;
   grid-column: s/e;
 
   display: grid;
   grid-template-columns: [s] 1fr [e];
-  grid-template-rows: [top-s].2fr[top-e bottom-s] 1fr [bottom-e];
+  grid-template-rows: [top-s] 0.2fr [top-e bottom-s] 1fr [bottom-e];
 
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 900px) {
     width: 100%;
   }
 
   &__page-title-wrapper {
-    padding-left: 200px;
-    padding-right: 200px;
+    width: 70%;
+    transform: translateX(50px);
     &__page-title {
       padding-left: 150px;
-      @media screen and (max-width: 1200px) {
-        padding-left: 50px;
+      @media screen and (max-width: 900px) {
+        padding-left: 20px;
       }
-    }
-
-    @media screen and (max-width: 1200px) {
-      padding-left: 50px;
-      padding-right: 50px;
     }
   }
   &__button-wrapper {
     padding-left: 400px;
-    @media screen and (max-width: 1200px) {
-      padding-left: 50px;
+
+    @media screen and (max-width: 900px) {
+      padding-left: 20px;
     }
+
     &__button {
       font-family: "Raleway", sans-serif;
 

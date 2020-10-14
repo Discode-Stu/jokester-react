@@ -10,21 +10,17 @@
   background-color: $purple;
 
   @media (max-width: 900px) {
-
     grid-template-rows: [desc-s] 1fr [desc-e];
     grid-template-columns: [s] 1fr [e];
     justify-items: flex-start;
   }
 
   .home__hero__site-description-wrapper {
-
     @media (max-width: 900px) {
       grid-column: s/e;
       grid-row: desc-s/desc-e;
       justify-content: start;
       justify-items: start;
-      
     }
   }
-
 }

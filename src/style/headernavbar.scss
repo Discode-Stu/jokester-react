@@ -5,12 +5,13 @@
   justify-content: center;
   align-items: flex-end;
 
+  grid-row: header-s/header-e;
+
   width: 100%;
   background-color: $yellow;
 
   @media screen and (max-width: 900px) {
     justify-content: flex-start;
-    width: 100vw;
   }
 
   &__image-jester {
@@ -45,6 +46,8 @@
 }
 
 .navbar {
+  grid-row: nav-s/nav-e;
+
   background-color: $teal;
 
   border-top: 5px groove $yellow;
@@ -59,9 +62,9 @@
 
   width: 100%;
 
-
   @media screen and (max-width: 900px) {
-    width: 100vw;
+    justify-content: center;
+    grid-gap: 60px;
   }
 
   .nav-link-wrapper {
