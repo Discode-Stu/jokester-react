@@ -5,7 +5,7 @@ import fire from "./config/fire";
 
 import Header from "./headernavbar/header";
 import Navbar from "./headernavbar/navbar";
-import Home from "./home";
+import Home from "./pages/home";
 import SignUp from "./pages/signUp";
 import SignIn from "./pages/signIn";
 import NoMatch from "./pages/noMatch";

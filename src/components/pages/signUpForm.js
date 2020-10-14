@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 
 import { signUp } from "../../actions/authActions";
 
-import { FormInput, FormButton } from "./formFields";
+import { FormInput, FormButton } from "../formFields/formFields";
 
 class SignUpForm extends Component {
   constructor(props) {

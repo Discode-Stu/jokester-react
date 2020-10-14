@@ -1,7 +1,7 @@
 import React from "react";
 
-import SiteDescription from "./siteDescription/siteDescription";
-import GetJokes from "./jokes/getJokes";
+import SiteDescription from "../siteDescription/siteDescription";
+import GetJokes from "../jokes/getJokes";
 
 export default function () {
   return (

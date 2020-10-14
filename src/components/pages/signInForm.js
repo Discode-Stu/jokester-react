@@ -3,7 +3,7 @@ import { reduxForm, Field } from "redux-form";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
-import { FormInput, FormButton } from "./formFields";
+import { FormInput, FormButton } from "../formFields/formFields";
 
 import { signIn } from "../../actions/authActions";
 
